@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
     return (
         <div className='nav'>
-            <img src={logo}/>
+            <img src={logo} width={150}/>
 
             <ul>
                 <Link to="/"><li className='one btn'><i class="fa-solid fa-lg fa-calendar"></i> Appointments</li></Link>
