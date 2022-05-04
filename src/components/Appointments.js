@@ -1,4 +1,5 @@
 import React from 'react';
+import CalendarCom from './UI Components/CalendarCom';
 import Date from './UI Components/Date';
 import Profile from './UI Components/Profile';
 
@@ -6,6 +7,8 @@ const Appointments = () => {
     return (
         <div className='page'>
             <h1>Welcome, John!</h1>
+
+            <Date />
 
             <Profile/>
 
@@ -15,7 +18,8 @@ const Appointments = () => {
                 </p>
             </div>
 
-            <Date />
+            <CalendarCom/>
+            
            
         </div>
     );

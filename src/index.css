@@ -47,6 +47,10 @@ li {
   color: var(--primary-color);
 }
 
+i {
+  margin-right: 10px;
+}
+
 li:hover {
   color: black;
 }
@@ -88,7 +92,8 @@ h1 {
   color: var(--primary-color);
   font-size: 60px;
   float: left;
-  width: 70%;
+  width: 60%;
+  margin-right: 30px;
 }
 
 .welcome {
@@ -106,18 +111,17 @@ h1 {
   background-color: var(--primary-color);
   color: var(--bg-color);
   font-family: "Montserrat", "sans-serif";
-  border-radius: 0px 0px 20px 20px;
+  border-radius: 20px;
   padding: 10px;
   text-align: center;
   width: 200px;
-  position: relative;
-  bottom: 150px;
-  left: 560px;
+  float: left;
 }
 
 .time {
   font-size: 36px;
   margin: 10px;
+  font-weight: bold;
 }
 
 /* Profile icon Styling */
@@ -136,4 +140,12 @@ h1 {
 
 h3 {
   font-family: "Montserrat", "sans-serif";
+}
+
+/* Calendar Styling */
+.calendar {
+  width: 50%;
+  float: left;
+  background-color: var(--primary-color);
+  border-radius: 20px;
 }

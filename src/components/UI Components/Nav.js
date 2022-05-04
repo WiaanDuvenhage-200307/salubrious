@@ -9,7 +9,7 @@ const Nav = () => {
             <img src={logo}/>
 
             <ul>
-                <Link to="/"><li className='one btn'><i class="fa-solid fa-lg fa-calendar"></i> Dashboard</li></Link>
+                <Link to="/"><li className='one btn'><i class="fa-solid fa-lg fa-calendar"></i> Appointments</li></Link>
                 <Link to="Patients"><li className='two btn'><i class="fa-solid fa-lg fa-hospital-user"></i> Patients</li></Link>
                 <Link to="Doctors"><li className='three btn'><i class="fa-solid fa-lg fa-user-doctor"></i> Doctors</li></Link>
             </ul>
