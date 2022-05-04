@@ -1,13 +1,17 @@
+/* Importing Montserrat Font */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
+/* Setting variables */
 :root {
   --bg-color: white;
   --primary-color: #111f4a;
   --secondary-color: #6bcbb8;
   --background-light: #e6e8ea;
   --secondary-light: #aadcd2;
+  --text: "Montserrat", "sans-serif";
 }
 
+/* Stripping the body */
 * {
   margin: 0;
   padding: 0;
@@ -16,16 +20,19 @@
   text-decoration: none;
 }
 
+/* Setting page background color */
 body {
   background-color: var(--bg-color);
 }
 
+/* Nav Styling */
 .nav {
   width: 20%;
   background-color: var(--background-light);
   height: 100vh;
   text-align: center;
   padding: 10px;
+  float: left;
 }
 
 li {
@@ -66,4 +73,67 @@ li::before {
   left: unset;
   right: 0;
   width: 100%;
+}
+
+/* Appointment Page Styling */
+.page {
+  float: left;
+  padding: 50px;
+  width: 70%;
+}
+
+h1 {
+  font-family: "Montserrat", "sans-serif";
+  font-weight: bold;
+  color: var(--primary-color);
+  font-size: 60px;
+  float: left;
+  width: 70%;
+}
+
+.welcome {
+  padding: 10px;
+  background-color: var(--background-light);
+  font-family: var(--text);
+  font-weight: lighter;
+  border-radius: 15px;
+  float: left;
+  width: 50%;
+}
+
+/* Date & Time Component Styling */
+.dateTimeCom {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  font-family: "Montserrat", "sans-serif";
+  border-radius: 0px 0px 20px 20px;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+  position: relative;
+  bottom: 150px;
+  left: 560px;
+}
+
+.time {
+  font-size: 36px;
+  margin: 10px;
+}
+
+/* Profile icon Styling */
+.profile-group {
+  margin: 0 auto;
+  float: right;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: red;
+  margin: 0 auto;
+}
+
+h3 {
+  font-family: "Montserrat", "sans-serif";
 }
