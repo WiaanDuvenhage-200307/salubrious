@@ -8,9 +8,9 @@ const Nav = () => {
             <img src={logo}/>
 
             <ul>
-                <li><i class="fa-solid fa-calendar"></i> Dashboard</li>
-                <li><i class="fa-solid fa-hospital-user"></i> Patients</li>
-                <li><i class="fa-solid fa-user-doctor"></i> Doctors</li>
+                <li className='one btn'><i class="fa-solid fa-lg fa-calendar"></i> Dashboard</li>
+                <li className='two btn'><i class="fa-solid fa-lg fa-hospital-user"></i> Patients</li>
+                <li className='three btn'><i class="fa-solid fa-lg fa-user-doctor"></i> Doctors</li>
             </ul>
 
         </div>
