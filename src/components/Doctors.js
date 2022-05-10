@@ -7,8 +7,6 @@ const Doctors = () => {
         <div className='page'>
             <h1>Our Doctors</h1>
 
-            <Date />
-
             <Profile/>
 
             <div className='welcome'>

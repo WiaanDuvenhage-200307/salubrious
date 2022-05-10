@@ -6,9 +6,7 @@ const Patients = () => {
     return (
         <div className='page'>
             <h1>Our Patients</h1>
-
-            <Date />
-
+            
             <Profile/>
 
             <div className='welcome'>
