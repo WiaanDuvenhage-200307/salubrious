@@ -5,7 +5,7 @@ import Profile from './UI Components/Profile';
 const Patients = () => {
     return (
         <div className='page'>
-            <h1>This is the patients page</h1>
+            <h1>Our Patients</h1>
 
             <Date />
 

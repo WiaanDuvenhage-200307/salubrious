@@ -5,7 +5,7 @@ import Profile from './UI Components/Profile';
 const Doctors = () => {
     return (
         <div className='page'>
-            <h1>This is the doctor's page</h1>
+            <h1>Our Doctors</h1>
 
             <Date />
 
