@@ -1,43 +1,27 @@
-import React, {useState, useEffect} from 'react';
-import moment from 'moment';
+import React from 'react';
+import { addDays, endOfMonth, endOfWeek, startOfDay, startOfMonth, startOfWeek } from 'date-fns';
 
 const CalendarCom = () => {
 
-    const [calendar, setCalendar] = useState([]);
-    const [value, setValue] = useState(moment());
+    const selectedDate = new Date(); //current month
 
-    const startDay = value.clone().startOf("month").startOf("week");
-    const endDay = value.clone().endOf("month").endOf("week");
-   
-    
+    const startDate = startOfWeek(startOfMonth(selectedDate)); //beginning of calendar month
+    const endDate = endOfWeek(endOfMonth(selectedDate)); //end of calendar month
 
+    function takeWeek(start = new Date()) {
+        let date = startOfWeek(startOfDay(start));
 
-    useEffect(() => {
-        const day = startDay.clone().subtract(1, "day");
-        const a = [];
-
-        while( day.isBefore(endDay, "day")) {
-            a.push(
-                Array(7).fill(0).map(() => day.add(1, "day").clone())
-            );
+        return function() {
+            const week = [...Array(7)].map((_, i) => addDays(date, i))
+            date = addDays(week[6], 1)
+            return week;
         }
+    };
 
-        setCalendar(a);
-
-    }, [value])
-    
-    
+    console.log(endDate);
     return (
-        <div className='calendar'>
-            {calendar.map((week) => (
-                <div>
-                    {week.map((day) =>(
-                        <div className='day' onClick={() => setValue(day)}>
-                            <div className={value.isSame(day, "day") ? "selected" : ""}>{day.format("D").toString()}</div>
-                        </div>
-                    ))}
-                </div>
-            ))}
+        <div>
+            
         </div>
     );
 };
