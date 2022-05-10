@@ -6,9 +6,7 @@ const Doctors = () => {
     return (
         <div className='page'>
             <h1>Our Doctors</h1>
-
-            <Profile/>
-
+            
             <div className='welcome'>
                 <p>Welcome to your management portal !
                     Manage all doctor’s appointments right here and look at upcoming appointments.

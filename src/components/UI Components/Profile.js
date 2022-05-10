@@ -6,7 +6,8 @@ const Profile = () => {
             <div className='circle'>
                 
             </div>
-            <h3>John</h3>
+            <h3>Jane</h3>
+            <h4>Head Receptionist</h4>
         </div>
     );
 };

@@ -9,9 +9,7 @@ const Appointments = () => {
             <h1>Welcome, John!</h1>
 
             <Date />
-
-            <Profile/>
-
+            
             <div className='welcome'>
                 <p>Welcome to your management portal !
                     Manage all doctor’s appointments right here and look at upcoming appointments.

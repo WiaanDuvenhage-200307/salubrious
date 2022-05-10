@@ -6,8 +6,6 @@ const Patients = () => {
     return (
         <div className='page'>
             <h1>Our Patients</h1>
-            
-            <Profile/>
 
             <div className='welcome'>
                 <p>Here is a list of our patients!

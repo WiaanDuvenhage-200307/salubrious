@@ -31,7 +31,7 @@ body {
   background-color: var(--background-light);
   height: 100vh;
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   float: left;
 }
 
@@ -42,7 +42,7 @@ li {
   justify-content: center;
   align-items: center;
   margin-top: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   transition: 0.4s all ease-in-out 0s;
   color: var(--primary-color);
 }
@@ -127,19 +127,24 @@ h1 {
 /* Profile icon Styling */
 .profile-group {
   margin: 0 auto;
-  float: right;
 }
 
 .circle {
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
   background-color: red;
   margin: 0 auto;
 }
 
 h3 {
   font-family: "Montserrat", "sans-serif";
+}
+
+h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: lighter;
 }
 
 /* Calendar Styling */
@@ -160,4 +165,22 @@ h3 {
   background-color: var(--primary-color);
   text-align: center;
   border-radius: 20px;
+}
+
+/* Logout Button Styling */
+.log-out {
+  font-family: "Montserrat", sans-serif;
+  padding: 10px;
+  width: 200px;
+  border-radius: 20px;
+  background-color: var(--secondary-color);
+  color: var(--bg-color);
+  font-size: 14px;
+  border: none;
+  font-weight: bold;
+}
+
+.log-out:hover {
+  background-color: var(--primary-color);
+  transition: 0.2s ease;
 }
