@@ -1,10 +1,13 @@
 import React from 'react';
+import {takeMonth} from '../calendar/CalendarMod';
 
-export default function CalendarCom() {
-
+const CalendarMod = () => {
+   const data = takeMonth()();
     return (
         <div>
-            
+            {JSON.stringify(data)}
         </div>
-    )
+    );
 };
+
+export default CalendarMod;
