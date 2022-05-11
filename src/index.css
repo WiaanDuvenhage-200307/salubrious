@@ -148,37 +148,6 @@ h4 {
 }
 
 /* Calendar Styling */
-.calendar {
-  width: 70%;
-  float: left;
-  background-color: var(--primary-color);
-  border-radius: 20px;
-  color: white;
-  font-family: "Montserrat", sans-serif;
-  padding: 10px;
-}
-
-.calendar .day {
-  width: calc(100% / 7);
-  height: 44px;
-  display: inline-block;
-  background-color: var(--primary-color);
-  text-align: center;
-  border-radius: 20px;
-}
-
-.columns {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.calDays {
-  background-color: red;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 
 /* Logout Button Styling */
 .log-out {
