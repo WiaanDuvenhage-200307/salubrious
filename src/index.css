@@ -167,6 +167,19 @@ h4 {
   border-radius: 20px;
 }
 
+.columns {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.calDays {
+  background-color: red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 /* Logout Button Styling */
 .log-out {
   font-family: "Montserrat", sans-serif;
