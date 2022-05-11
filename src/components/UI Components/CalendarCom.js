@@ -4,8 +4,8 @@ import {takeMonth} from '../calendar/CalendarMod';
 const CalendarMod = () => {
    const data = takeMonth()();
     return (
-        <div>
-            {JSON.stringify(data)}
+        <div className='calendar'>
+            {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(dayName => <div className='columns'>{dayName}</div>)}
         </div>
     );
 };
