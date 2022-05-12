@@ -1,5 +1,5 @@
 import React from 'react';
-import { format } from 'date-fns';
+import { format, isSameMonth } from 'date-fns';
 import {takeMonth} from '../module/CalendarMod';
 
 function WeekNames() {
@@ -13,16 +13,22 @@ function WeekNames() {
     )
 }
 
+function dayColor(day) {
+
+    if(!isSameMonth(day, new Date())) return "text-gray-500";
+
+}
+
 const CalendarMod = () => {
-   const data = takeMonth()();
+   const data = takeMonth(new Date())();
     return (
        <div className={"bg-white box-border m-1 flex calendar"}>
-           <div className={"border round-md"}>
+           <div className={"border rounded-xl p-2"}>
                 <WeekNames />
                 {
                     data.map(week => <div className={"grid grid-cols-7"}>
                         {
-                            week.map(day => <div className={"h-16 w-16 flex items-center justify-center border border-blue-200"}>{format(day, 'dd')}</div>)
+                            week.map(day => <div className={`h-16 w-16 flex items-center justify-center border border-blue-200 ${dayColor(day)}`}>{format(day, 'dd')}</div>)
                         }
                     </div>)
                 }
