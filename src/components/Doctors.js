@@ -8,8 +8,7 @@ const Doctors = () => {
             <h1>Our Doctors</h1>
             
             <div className='welcome'>
-                <p>Welcome to your management portal !
-                    Manage all doctor’s appointments right here and look at upcoming appointments.
+                <p>Here is a list of our doctor’s!
                 </p>
             </div>
 

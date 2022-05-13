@@ -1,34 +1,59 @@
-import React from 'react';
-import { format, isSameMonth } from 'date-fns';
+import React, {useState} from 'react';
+import { format, isSameDay, isSameMonth } from 'date-fns';
 import {takeMonth} from '../module/CalendarMod';
+
+
 
 function WeekNames() {
     return( 
         <div className={"grid grid-cols-7"}>
                     {
-                        ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(dayName =>
-                        <div className={"bg-blue-200 h-16 w-16 flex items-center justify-center border border-blue-200"}>{dayName}</div>)
+                        ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((dayName, i) =>
+                        <div className={`bg-blue-200 h-16 w-16 flex items-center justify-center dayNameHeader`}>{dayName}</div>)
                     }
         </div>
     )
 }
 
-function dayColor(day) {
+// Changes colors of the day on the calendar if it is not the same month as the current month or the selected month
 
-    if(!isSameMonth(day, new Date())) return "text-gray-500";
-
-}
 
 const CalendarMod = () => {
-   const data = takeMonth(new Date())();
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    const data = takeMonth(selectedDate)();
+
+    function dayColor(day) {
+        if(!isSameMonth(day, selectedDate)) return "text-gray-500";
+        if(isSameDay(day, selectedDate)) return "selected";
+    }
+
+    function Months(){
+        const month = selectedDate;
+        return(
+            <div className={"month"}>{format(month, 'MMMM').toUpperCase()}</div>
+        )
+    }
+    
+    function Year(){
+        const year = selectedDate;
+        return(
+            <div className='month'>{format(year, 'yyyy').toUpperCase()}</div>
+        )
+    }
+
     return (
-       <div className={"bg-white box-border m-1 flex calendar"}>
-           <div className={"border rounded-xl p-2"}>
+        
+       <div className={"calendar mt-5"}>
+           
+            <div className={"rounded-xl"}>
+                <Months/>
+                <Year/>
+
                 <WeekNames />
                 {
-                    data.map(week => <div className={"grid grid-cols-7"}>
+                    data.map((week , wi)=> <div className={"grid grid-cols-7"}>
                         {
-                            week.map(day => <div className={`h-16 w-16 flex items-center justify-center border border-blue-200 ${dayColor(day)}`}>{format(day, 'dd')}</div>)
+                            week.map((day, di) => <div onClick={() => setSelectedDate(day)} className={`h-16 w-16 flex items-center justify-center ${dayColor(day)}`}>{format(day, 'dd')}</div>)
                         }
                     </div>)
                 }
