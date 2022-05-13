@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Button = () => {
+const Button = (props) => {
     return (
-        <div>
-            
+        <div className='button'>
+            {props.name}
         </div>
     );
 };

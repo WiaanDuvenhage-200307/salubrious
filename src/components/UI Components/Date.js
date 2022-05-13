@@ -2,6 +2,7 @@ import React from 'react';
 
 const Date = () => {
 
+
     const dateTime = window.Date();
 
     console.log(dateTime);

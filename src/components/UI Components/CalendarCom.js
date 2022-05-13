@@ -37,7 +37,7 @@ const CalendarMod = () => {
     function Year(){
         const year = selectedDate;
         return(
-            <div className='month'>{format(year, 'yyyy').toUpperCase()}</div>
+            <div className={"year"}>{format(year, 'yyyy').toUpperCase()}</div>
         )
     }
 
@@ -46,8 +46,9 @@ const CalendarMod = () => {
        <div className={"calendar mt-5"}>
            
             <div className={"rounded-xl"}>
-                <Months/>
                 <Year/>
+                <Months/>
+                
 
                 <WeekNames />
                 {
