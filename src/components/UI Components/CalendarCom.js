@@ -1,27 +1,33 @@
-import React, {useState} from 'react';
-import { format, isSameDay, isSameMonth } from 'date-fns';
-import {takeMonth} from '../module/CalendarMod';
+import React, {useEffect, useState} from 'react';
+import { format, isSameDay, isSameMonth, addDays } from 'date-fns';
+import {takeMonth, startOfMonth} from '../module/CalendarMod';
+import Button from '../UI Components/Buttons/Button';
+import NextPreviousMonth from './Buttons/NextPreviousMonth';
 
 
-
-function WeekNames() {
-    return( 
-        <div className={"grid grid-cols-7"}>
-                    {
-                        ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((dayName, i) =>
-                        <div className={`bg-blue-200 h-16 w-16 flex items-center justify-center dayNameHeader`}>{dayName}</div>)
-                    }
-        </div>
-    )
-}
-
-// Changes colors of the day on the calendar if it is not the same month as the current month or the selected month
 
 
 const CalendarMod = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const data = takeMonth(selectedDate)();
+    
 
+    useEffect(() => {
+        
+    }, [])
+
+    function WeekNames() {
+        return( 
+            <div className={"grid grid-cols-7"}>
+                        {
+                            ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((dayName, i) =>
+                            <div className={`bg-blue-200 h-16 w-16 flex items-center justify-center dayNameHeader`}>{dayName}</div>)
+                        }
+            </div>
+        )
+    }
+
+    // Changes colors of the day on the calendar if it is not the same month as the current month or the selected month
     function dayColor(day) {
         if(!isSameMonth(day, selectedDate)) return "text-gray-500";
         if(isSameDay(day, selectedDate)) return "selected";
@@ -41,14 +47,30 @@ const CalendarMod = () => {
         )
     }
 
+    function prevMonth(){
+        const addTheDays = addDays(selectedDate, -30);
+        const month =  (format(addTheDays, 'MMMM'));
+        console.log(month);
+    }
+
+    function nextMonth(){
+        const addTheDays = addDays(selectedDate, 30);
+        const month =  (format(addTheDays, 'MMMM'));
+        console.log(month);
+    }
+
     return (
         
        <div className={"calendar mt-5"}>
            
             <div className={"rounded-xl"}>
                 <Year/>
-                <Months/>
-                
+                <div className='month-heading-group'>
+                    <NextPreviousMonth onClick={() => prevMonth()} name="<"/>
+                    <Months/>
+                    <NextPreviousMonth onClick={() => nextMonth()} name=">"/>
+                </div>
+
 
                 <WeekNames />
                 {
