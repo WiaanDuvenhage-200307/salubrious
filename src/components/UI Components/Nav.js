@@ -3,6 +3,7 @@ import logo from '../assets/logo.svg';
 import "https://kit.fontawesome.com/3d7d8906d0.js";
 import { Link } from 'react-router-dom';
 import Profile from './Profile';
+import Button from './Buttons/Button';
 
 const Nav = () => {
     return (
@@ -16,7 +17,7 @@ const Nav = () => {
             </ul>
 
             <Profile/>
-            <button className='log-out'>LOG OUT</button>
+            <Button className="log-out" name="LOG OUT"/>
 
         </div>
     );
