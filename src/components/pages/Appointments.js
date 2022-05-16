@@ -1,8 +1,7 @@
 import React from 'react';
-import AppointmentsCom from './UI Components/AppointmentsCom';
-import CalendarCom from './UI Components/CalendarCom';
-import Date from './UI Components/Date';
-import Profile from './UI Components/Profile';
+import AppointmentsCom from '../UI Components/AppointmentsCom';
+import CalendarCom from '../UI Components/CalendarCom';
+import Date from '../UI Components/Date';
 
 const Appointments = () => {
     return (

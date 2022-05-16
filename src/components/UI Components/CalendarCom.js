@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { format, isSameDay, isSameMonth, addDays } from 'date-fns';
 import {takeMonth, startOfMonth} from '../module/CalendarMod';
-import Button from '../UI Components/Buttons/Button';
-import NextPreviousMonth from './Buttons/NextPreviousMonth';
+import Button from './Buttons/Button';
 
 
 
@@ -66,9 +65,9 @@ const CalendarMod = () => {
             <div className={"rounded-xl"}>
                 <Year/>
                 <div className='month-heading-group'>
-                    <NextPreviousMonth onClick={() => prevMonth()} name="<"/>
+                    <Button className="next-prev" onClick={() => prevMonth()} name="<"/>
                     <Months/>
-                    <NextPreviousMonth onClick={() => nextMonth()} name=">"/>
+                    <Button className="next-prev" onClick={() => nextMonth()} name=">"/>
                 </div>
 
 

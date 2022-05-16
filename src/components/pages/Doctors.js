@@ -1,6 +1,7 @@
 import React from 'react';
-import Date from './UI Components/Date';
-import Profile from './UI Components/Profile';
+import Date from '../UI Components/Date';
+import Profile from '../UI Components/Profile';
+import Table from '../UI Components/Table';
 
 const Doctors = () => {
     return (
@@ -12,6 +13,7 @@ const Doctors = () => {
                 </p>
             </div>
 
+            <Table name="DOCTOR NAME" number="DOCTOR ID"/>
         </div>
         
     );

@@ -11,7 +11,7 @@ const AppointmentsCom = () => {
         <div className={"appointments-block"}>
             <h2>Appointments</h2>
             <div onClick={() => addAppointmentHandler()}>
-                <Button name="New Appointment +"/>
+                <Button className="button" name="New Appointment +"/>
             </div>
             
         </div>

@@ -1,8 +1,8 @@
 import Nav from "./components/UI Components/Nav";
 import {Routes, Route} from 'react-router-dom';
-import Appointments from './components/Appointments';
-import Patients from './components/Patients';
-import Doctors from './components/Doctors';
+import Appointments from "./components/pages/Appointments";
+import Patients from "./components/pages/Patients";
+import Doctors from "./components/pages/Doctors";
 
 
 function App() {

@@ -94,6 +94,19 @@ li:hover {
   background-color: var(--bg-color);
 }
 
+.update-btn{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    width: 100px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.update-btn:hover{
+    transition: 0.2s ease-in-out;
+    background-color: var(--bg-color);
+}
+
 .button:hover {
   transition: 0.2s ease-in-out;
   background-color: var(--primary-color);
@@ -265,6 +278,47 @@ h4 {
 .appointments-block h2 {
   font-weight: bold;
 }
+
+/* Table styling */
+table{
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 20px;
+}
+
+tr{
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.table__img{
+    width: 10%;
+}
+
+th{
+    padding-top: 20px;
+    padding-left: 20px;
+    text-align: center;
+}
+
+td{
+    padding: 20px;
+    text-align: center;
+}
+
+.table__btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pname{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+}
+
 
 /* Patient block */
 .patient-block {
