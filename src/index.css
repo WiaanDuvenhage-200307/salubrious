@@ -52,8 +52,9 @@ li {
   align-items: center;
   margin-top: 100px;
   margin-bottom: 50px;
-  transition: 0.4s all ease-in-out 0s;
   color: var(--primary-color);
+  padding: 10px;
+  width: 110%;
 }
 
 i {
@@ -61,10 +62,10 @@ i {
 }
 
 li:hover {
-  color: white;
-  background-color: #111f4a;
+  color: var(--primary-color);
   border-radius: 20px;
-  padding: 5px;
+  background-color: var(--bg-color);
+  transition: 0.2s ease-in-out;
 }
 
 .next-prev {

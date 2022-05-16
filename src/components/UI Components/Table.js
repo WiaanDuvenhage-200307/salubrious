@@ -13,7 +13,7 @@ const Table = (props) => {
             <tbody>
                 <tr>
                     <td className='table__img'><img src='https://via.placeholder.com/50'/></td>
-                    <td><span className='pname'>W. Duvenhage</span><br/> Male</td>
+                    <td><span className='pname'>W. Duvenhage</span><br/>{props.title}</td>
                     <td>SAL2348478</td>
                     <td><span className='pname'>09/05/2022</span><br />{props.doctorName}</td>
                     <td className='table__btn'><Button className="update-btn" name="UPDATE"/></td> 
@@ -21,7 +21,7 @@ const Table = (props) => {
 
                 <tr>
                     <td><img src='https://via.placeholder.com/50'/></td>
-                    <td><span className='pname'>W. Duvenhage</span><br/> Male</td>
+                    <td><span className='pname'>W. Duvenhage</span><br/>{props.title}</td>
                     <td>SAL2348478</td>
                     <td><span className='pname'>09/05/2022</span><br />{props.doctorName}</td>
                     <td className='table__btn'><Button className="update-btn" name="UPDATE"/></td>
@@ -29,7 +29,7 @@ const Table = (props) => {
 
                 <tr>
                     <td><img src='https://via.placeholder.com/50'/></td>
-                    <td><span className='pname'>W. Duvenhage</span><br/> Male</td>
+                    <td><span className='pname'>W. Duvenhage</span><br/>{props.title}</td>
                     <td>SAL2348478</td>
                     <td><span className='pname'>09/05/2022</span><br />{props.doctorName}</td>
                     <td className='table__btn'><Button className="update-btn" name="UPDATE"/></td>

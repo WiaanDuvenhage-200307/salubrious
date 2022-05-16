@@ -13,7 +13,7 @@ const Doctors = () => {
                 </p>
             </div>
 
-            <Table name="DOCTOR NAME" number="DOCTOR ID"/>
+            <Table name="DOCTOR NAME" number="DOCTOR ID" title="Surgeon"/>
         </div>
         
     );
