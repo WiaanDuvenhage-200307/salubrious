@@ -103,6 +103,50 @@ li:hover {
     margin: 0 auto;
 }
 
+.close-btn{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+}
+
+.close-btn:hover{
+    background-color: red;
+    transition: 0.2s ease-in-out;
+}
+
+.secondary-btn{
+    width: 50%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid var(--primary-color);
+    margin: 0 auto;
+}
+
+.primary-btn:hover{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transition: 0.2s ease-in-out;
+}
+
+.secondary-btn:hover{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transition: 0.2s ease-in-out;
+}
+
+.primary-btn{
+    width: 50%;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: var(--secondary-color);
+    margin: 0 auto;
+}
+
 .update-btn{
     background-color: var(--secondary-color);
     color: var(--primary-color);
@@ -121,11 +165,6 @@ li:hover {
   background-color: var(--primary-color);
   color: var(--secondary-color);
 }
-
-.next-previous {
-  background-color: red !important;
-}
-
 /* Appointment Page Styling */
 .page {
   float: left;
@@ -196,7 +235,7 @@ h4 {
 
 /* Calendar Styling */
 .calendar {
-  width: 60%;
+  width: 65%;
   float: left;
   background-color: var(--primary-color);
   border-radius: 20px;
@@ -210,7 +249,6 @@ h4 {
 .calendar .day {
   width: calc(100% / 7);
   height: 44px;
-  display: inline-block;
   background-color: var(--primary-color);
   text-align: center;
   border-radius: 20px;
@@ -386,5 +424,35 @@ td{
 .input-con label{
    text-align: left;
    margin-top: 10px;
+}
+
+/* Modal styling */
+.modal{
+    background-color: var(--background-light);
+    float: left;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.modal-bg{
+    background-color: rgba(200, 200, 200, 0.5);
+}
+
+.modal-con{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.modal__title{
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.modal__body{
+    text-align: center;
 }
 

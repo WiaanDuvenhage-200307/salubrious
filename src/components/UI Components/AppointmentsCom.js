@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../UI Components/Buttons/Button';
+import Modal from './Modal';
+
 
 const AppointmentsCom = () => {
 
-    function addAppointmentHandler(){
-        console.log("Button is clicked!");
-    }
-    
+    const[openModal , setOpenModal] = useState(false);
+
     return (
-        <div className={"appointments-block"}>
-            <h2>Appointments</h2>
-            <div onClick={() => addAppointmentHandler()}>
-                <Button className="button" name="New Appointment +"/>
+        <>
+            <div className={"appointments-block"}>
+                <h2>Appointments</h2>
+                <div>
+                    <Button name="New Appointment+" className="button" function={() => {setOpenModal(true)}}/>
+                </div>
+                            
+                {openModal && <Modal closeModal={setOpenModal}/>}
             </div>
             
-        </div>
+        </>
     );
 };
 

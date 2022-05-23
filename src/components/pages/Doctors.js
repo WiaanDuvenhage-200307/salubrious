@@ -1,9 +1,11 @@
-import React from 'react';
-import Date from '../UI Components/Date';
-import Profile from '../UI Components/Profile';
+import React, { useState } from 'react';
 import Table from '../UI Components/Table';
 
+
 const Doctors = () => {
+
+    const[openModal, setOpenModal] = useState(false)
+
     return (
         <div className='page'>
             <h1>Our Doctors</h1>

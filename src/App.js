@@ -9,10 +9,10 @@ import RegisterAndSignUp from "./components/pages/RegisterAndSignUp";
 function App() {
   return (
     <div className="App">
-    <RegisterAndSignUp/>
+    {/* <RegisterAndSignUp/> */}
     <Nav />
     <Routes>
-        <Route path='/Appointments' element = {<Appointments/>}></Route>
+        <Route path='/' element = {<Appointments/>}></Route>
         <Route path='/Patients' element = {<Patients/>}></Route>
         <Route path='/Doctors' element = {<Doctors/>}></Route>
     </Routes>

@@ -3,7 +3,9 @@ import AppointmentsCom from '../UI Components/AppointmentsCom';
 import CalendarCom from '../UI Components/CalendarCom';
 import Date from '../UI Components/Date';
 
+
 const Appointments = () => {
+
     return (
         <div className='page'>
             <h1>Welcome, John!</h1>
@@ -19,7 +21,8 @@ const Appointments = () => {
             <CalendarCom/>
 
             <AppointmentsCom/>
-            
+
+
            
         </div>
     );

@@ -5,7 +5,8 @@ import Button from '../UI Components/Buttons/Button';
 export default function RegisterAndSignUp() {
   return (
     <div className='register-signup'>
-                <img src={Logo} width={150}/>
+            <img src={Logo} width={100}/>
+
             <div className="input-con">
                     
                 <label for="fname">First Name</label>
@@ -30,6 +31,7 @@ export default function RegisterAndSignUp() {
                 <input name='dob' type="date"  placeholder='DD/MM/YYYY'/>
 
                 <Button name="REGISTER" className="signup-login-btn"/>
+                <Button name="LOGIN" className="tersiary-btn"/>
             </div> 
     </div>
   )
