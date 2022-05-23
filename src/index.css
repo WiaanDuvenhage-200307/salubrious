@@ -95,6 +95,14 @@ li:hover {
   background-color: var(--bg-color);
 }
 
+.signup-login-btn{
+    width: 200px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: var(--secondary-color);
+    margin: 0 auto;
+}
+
 .update-btn{
     background-color: var(--secondary-color);
     color: var(--primary-color);
@@ -335,3 +343,48 @@ td{
 .patient-block h3 {
   font-weight: lighter;
 }
+
+/* Register & Sign Up Page */
+.register-signup{
+    background-color: var(--bg-color);
+    position: absolute;
+    z-index: 1;
+    height: 100vh;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+}
+
+.register-signup h1{
+    text-align: center;
+    font-size: 36px;
+    width: auto;
+}
+
+.register-signup__bg-img{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-con{
+    width: 20%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-con input{
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+    padding: 10px;
+    border: 3px solid var(--primary-color);
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
+
+.input-con label{
+   text-align: left;
+   margin-top: 10px;
+}
+
