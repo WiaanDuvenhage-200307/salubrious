@@ -256,10 +256,13 @@ h4 {
 
 .selected {
   background-color: var(--secondary-color);
-  color: black;
+  color: var(--primary-color);
   border-radius: 10px;
-  border: none;
   outline: none;
+}
+
+.selectedDateColor{
+    background-color: red;
 }
 
 .month {
@@ -437,7 +440,9 @@ td{
 }
 
 .modal-bg{
-    background-color: rgba(200, 200, 200, 0.5);
+    background-color: rgb(200, 200, 200);
+    width: 100%;
+    height: auto;
 }
 
 .modal-con{

@@ -12,7 +12,8 @@ const Patients = () => {
             </div>
 
             <Table name="PATIENT NAME" number="MEDICAL AID NUMBER" doctorName="Dr. Charlene Ferreira" title="Male"/>
-
+            
+            
         </div>
     );
 };

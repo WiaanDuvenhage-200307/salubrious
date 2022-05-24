@@ -11,10 +11,6 @@ const CalendarMod = () => {
     const data = takeMonth(selectedDate)();
     
 
-    useEffect(() => {
-        
-    }, [])
-
     function WeekNames() {
         return( 
             <div className={"grid grid-cols-7"}>
