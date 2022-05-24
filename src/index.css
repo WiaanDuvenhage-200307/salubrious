@@ -433,16 +433,24 @@ td{
 .modal{
     background-color: var(--background-light);
     float: left;
-    width: 100%;
+    width: 50%;
     height: auto;
     border-radius: 20px;
     padding: 10px;
+    margin: 0 auto;
+    position: fixed;
+    z-index: 10;
+    top: 15vh;
+    left: 25%;
 }
 
 .modal-bg{
-    background-color: rgb(200, 200, 200);
-    width: 100%;
-    height: auto;
+    background-color: rgba(200, 200, 200, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
 }
 
 .modal-con{

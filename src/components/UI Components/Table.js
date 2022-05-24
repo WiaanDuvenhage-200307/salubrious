@@ -4,7 +4,7 @@ import Modal from './Modal';
 
 const Table = (props) => {
 
-    const[openModal , setOpenModal] = useState(false);
+    const[modalOpen , setModalOpen] = useState(false);
     return (
         <>
         <table className='table'>
@@ -20,7 +20,7 @@ const Table = (props) => {
                     <td><span className='pname'>W. Duvenhage</span><br/>{props.title}</td>
                     <td>SAL2348478</td>
                     <td><span className='pname'>09/05/2022</span><br />{props.doctorName}</td>
-                    <td className='table__btn'><Button className="update-btn" name="UPDATE" function={() => {setOpenModal(true)}}/></td> 
+                    <td className='table__btn'><Button className="update-btn" name="UPDATE" function={() => {setModalOpen(true)}}/></td> 
                 </tr>
 
                 <tr>
@@ -28,7 +28,7 @@ const Table = (props) => {
                     <td><span className='pname'>W. Duvenhage</span><br/>{props.title}</td>
                     <td>SAL2348478</td>
                     <td><span className='pname'>09/05/2022</span><br />{props.doctorName}</td>
-                    <td className='table__btn'><Button className="update-btn" name="UPDATE" function={() => {setOpenModal(true)}}/></td>
+                    <td className='table__btn'><Button className="update-btn" name="UPDATE" function={() => {setModalOpen(true)}}/></td>
                 </tr>
 
                 <tr>
@@ -36,11 +36,11 @@ const Table = (props) => {
                     <td><span className='pname'>W. Duvenhage</span><br/>{props.title}</td>
                     <td>SAL2348478</td>
                     <td><span className='pname'>09/05/2022</span><br />{props.doctorName}</td>
-                    <td className='table__btn'><Button className="update-btn" name="UPDATE" function={() => {setOpenModal(true)}}/></td>
+                    <td className='table__btn'><Button className="update-btn" name="UPDATE" function={() => {setModalOpen(true)}}/></td>
                 </tr>
             </tbody>
         </table>
-        <div className='modal-con'>{openModal && <Modal closeModal={setOpenModal}/>}</div>
+        {modalOpen && <Modal heading="Add an Appointment" body="example text" openModal={setModalOpen} />}
         
         </>
         

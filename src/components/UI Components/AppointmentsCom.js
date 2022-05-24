@@ -5,17 +5,17 @@ import Modal from './Modal';
 
 const AppointmentsCom = () => {
 
-    const[openModal , setOpenModal] = useState(false);
+    const[modalOpen , setModalOpen] = useState(false);
 
     return (
         <>
             <div className={"appointments-block"}>
                 <h2>Appointments</h2>
                 <div>
-                    <Button name="New Appointment+" className="button" function={() => {setOpenModal(true)}}/>
+                    <Button name="New Appointment+" className="button" function={() => {setModalOpen(true)}}/>
                 </div>
                             
-                {openModal && <Modal closeModal={setOpenModal}/>}
+                {modalOpen && <Modal heading="Add an Appointment" body="example text" openModal={setModalOpen} />}
             </div>
             
         </>

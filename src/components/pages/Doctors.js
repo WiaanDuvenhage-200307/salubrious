@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import Modal from '../UI Components/Modal';
 import Table from '../UI Components/Table';
 
 
 const Doctors = () => {
 
-    const[openModal, setOpenModal] = useState(false)
+    const[modalOpen , setModalOpen] = useState(false);
 
     return (
+        <>
         <div className='page'>
             <h1>Our Doctors</h1>
             
@@ -16,8 +18,10 @@ const Doctors = () => {
             </div>
 
             <Table name="DOCTOR NAME" number="DOCTOR ID" title="Surgeon"/>
+           
         </div>
-        
+        {modalOpen && <Modal title="Update Doctors" openModal={setModalOpen} />}
+        </>
     );
 };
 
