@@ -2,6 +2,9 @@ import React from 'react';
 import AppointmentsCom from '../UI Components/AppointmentsCom';
 import CalendarCom from '../UI Components/CalendarCom';
 import Date from '../UI Components/Date';
+import Register from './Register';
+
+// TODO | Redesign Page and divide in 3 sections
 
 
 const Appointments = () => {
@@ -21,7 +24,6 @@ const Appointments = () => {
             <CalendarCom/>
 
             <AppointmentsCom/>
-
 
            
         </div>

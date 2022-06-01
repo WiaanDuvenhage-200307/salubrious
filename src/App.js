@@ -3,13 +3,13 @@ import {Routes, Route} from 'react-router-dom';
 import Appointments from "./components/pages/Appointments";
 import Patients from "./components/pages/Patients";
 import Doctors from "./components/pages/Doctors";
-import RegisterAndSignUp from "./components/pages/RegisterAndSignUp";
+import Register from "./components/pages/Register";
+import {Navigate} from 'react-router-dom';
 
 
 function App() {
   return (
     <div className="App">
-    {/* <RegisterAndSignUp/> */}
     <Nav />
     <Routes>
         <Route path='/' element = {<Appointments/>}></Route>
