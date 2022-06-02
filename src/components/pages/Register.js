@@ -29,10 +29,10 @@ export default function Register() {
             <Input className='form-input' name='fname' type='text' placeholder='someone@email.com'/>
 
             <label for="password">Password</label>
-            <Input className='form-input' name='fname' type='text' placeholder='Password'/>
+            <Input className='form-input' name='fname' type='text' placeholder='Password' passIcon="hide-pass"/>
 
             <label for="password">Confirm Password</label>
-            <Input className='form-input' name='fname' type='text' placeholder='Confirm Password'/>
+            <Input className='form-input' name='fname' type='text' placeholder='Confirm Password' passIcon="hide-pass"/>
 
             <label for="phone">Phone Number (optional)</label>
             <Input className='form-input' name='fname' type='text' placeholder='(+27)'/>

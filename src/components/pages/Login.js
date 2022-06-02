@@ -59,7 +59,7 @@ export default function Login() {
                 <Input className='form-input' name='fname' type='email' onChange={emailVal} />
 
                 <label for="password">Password</label>
-                <Input className='form-input' name='fname' type='password' onChange={passwordVal}/>
+                <Input className='form-input' name='fname' type='password' onChange={passwordVal} passIcon="hide-pass"/>
 
                 <Button name="LOGIN" className="signup-login-btn" function={() => handleSubmit(true)}/>
                 <div className='btn-group'>
