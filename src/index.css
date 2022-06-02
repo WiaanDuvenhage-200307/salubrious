@@ -54,7 +54,6 @@ li {
   margin-bottom: 50px;
   color: var(--primary-color);
   padding: 10px;
-  width: 110%;
 }
 
 i {
@@ -62,9 +61,8 @@ i {
 }
 
 li:hover {
-  color: var(--primary-color);
+  color: #2A4084;
   border-radius: 20px;
-  background-color: var(--bg-color);
   transition: 0.2s ease-in-out;
 }
 
@@ -100,6 +98,7 @@ li:hover {
     padding: 10px;
     border-radius: 20px;
     background-color: var(--primary-color);
+    color: var(--bg-color);
     margin: 0 auto;
 }
 
@@ -145,6 +144,10 @@ li:hover {
     border-radius: 20px;
     background-color: var(--secondary-color);
     margin: 0 auto;
+}
+
+.tersiary-btn:hover{
+    text-decoration: underline;
 }
 
 .update-btn{
@@ -386,10 +389,16 @@ td{
 }
 
 /* Register & Sign Up Page */
-.register-signup{
-    background-color: var(--bg-color);
-    position: absolute;
+.login-bg{
+    background-image: url("./components/assets/login-bg.png");
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    overflow-x: hidden;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
     width: 100%;
     font-family: 'Montserrat', sans-serif;
@@ -412,9 +421,14 @@ td{
     margin: 0 auto;
     text-align: left;
     padding: 10px;
-    border: 3px solid var(--primary-color);
+    border: 1px solid var(--primary-color);
     border-radius: 30px;
-    margin-bottom: 10px;
+}
+
+.form-input:focus{
+    transition: 0.2s linear;
+    outline: none;
+    background-color: var(--background-light);
 }
 
 .input-con{
@@ -468,4 +482,52 @@ td{
 .modal__body{
     text-align: center;
 }
+
+/* Login Page Styling */
+
+.login-con{
+    margin: 0 auto;
+    width: 50%;
+    height: 70vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    padding: 20px;
+    /* box-shadow: 10px 12px 37px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 12px 37px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 12px 37px 0px rgba(0,0,0,0.75); */
+}
+
+.form-con{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.form-con h1{
+    text-align: center;
+    margin: 0 auto;
+    font-size: 24px;
+    margin-top: 50px;
+}
+
+.login-img{
+    width: 40%;
+}
+
+.btn-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-group p{
+    margin-right: 10px;
+}
+
+
 

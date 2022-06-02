@@ -1,13 +1,24 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import AppointmentsCom from '../UI Components/AppointmentsCom';
 import CalendarCom from '../UI Components/CalendarCom';
 import Date from '../UI Components/Date';
-import Register from './Register';
+import { useNavigate } from 'react-router-dom';
 
 // TODO | Redesign Page and divide in 3 sections
 
 
 const Appointments = () => {
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const userSession = sessionStorage.getItem('activeUser');
+        console.log(userSession);
+        if(userSession === '' || userSession === null){
+            navigate('/');
+        }
+
+    }, [])
 
     return (
         <div className='page'>
