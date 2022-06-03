@@ -1,10 +1,11 @@
 import React from 'react';
-import logo from '../assets/logo.svg';
+import logo from '../assets/no-text-logo.svg';
 import "https://kit.fontawesome.com/3d7d8906d0.js";
 import { Link } from 'react-router-dom';
 import Profile from './Profile';
 import Button from './Buttons/Button';
 import { useNavigate } from 'react-router-dom';
+import styles from './Nav.module.css';
 
 const Nav = () => {
 
@@ -21,8 +22,8 @@ const Nav = () => {
     
 
     return (
-        <div className='nav'>
-            <img src={logo} width={150}/>
+        <div className={styles.nav}>
+            <img src={logo} width={100}/>
 
             <ul>
                 <Link to="/Appointments"><li className='one btn'><i class="fa-solid fa-lg fa-calendar"></i> Appointments</li></Link>
