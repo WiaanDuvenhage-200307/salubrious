@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../UI Components/Buttons/Button';
 import Modal from './Modal';
+import styles from './AppointmentsCom.module.css';
 
 
 const AppointmentsCom = () => {
@@ -9,10 +10,10 @@ const AppointmentsCom = () => {
 
     return (
         <>
-            <div className={"appointments-block"}>
+            <div className={styles.appointmentsBlock}>
                 <h2>Appointments</h2>
                 <div>
-                    <Button name="New Appointment+" className="button" function={() => {setModalOpen(true)}}/>
+                    <Button name="New Appointment+" className={styles.newAppointBtn} function={() => {setModalOpen(true)}}/>
                 </div>
                             
                 {modalOpen && <Modal heading="Add an Appointment" body="example text" openModal={setModalOpen} />}

@@ -5,7 +5,7 @@ const Modal = ({openModal,props}) => {
   return (
     <div className='modal-bg'>
         <div className='modal'>
-            <Button name="x" function={() => openModal(false)} className="close-btn"/>
+            <Button name={<i class="fa-solid fa-x"></i>} function={() => openModal(false)} className="close-btn"/>
             <div className="modal__title">Heading</div>
             <div className="modal__body">
                 <h3>Body</h3>

@@ -1,17 +1,15 @@
-import Nav from "./components/UI Components/Nav";
+
 import {Routes, Route} from 'react-router-dom';
 import Appointments from "./components/pages/Appointments";
 import Patients from "./components/pages/Patients";
 import Doctors from "./components/pages/Doctors";
 import Register from "./components/pages/Register";
 import Login from './components/pages/Login';
-import Input from "./components/UI Components/Input";
 
 
 function App() {
   return (
     <div className="App">
-    <Nav />
     <Routes>
         <Route path='/' element = {<Login/>}></Route>
         <Route path='/Register' element = {<Register/>}></Route>

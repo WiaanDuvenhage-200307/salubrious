@@ -48,7 +48,7 @@ export default function Login() {
     <div className='login-bg'>
         <div className="login-con">
             <div className='login-img'>
-                <img src={LoginImg}/>
+                <img src={LoginImg} alt="Missing Image"/>
             </div>
 
             <div className="form-con">

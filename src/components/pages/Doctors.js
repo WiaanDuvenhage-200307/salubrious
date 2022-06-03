@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from '../UI Components/Modal';
+import Nav from '../UI Components/Nav';
 import Table from '../UI Components/Table';
 
 
@@ -10,6 +11,7 @@ const Doctors = () => {
     return (
         <>
         <div className='page'>
+            <Nav/>
             <h1>Our Doctors</h1>
             
             <div className='welcome'>

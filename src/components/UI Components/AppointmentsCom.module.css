@@ -1,0 +1,30 @@
+@import '../../index.css';
+
+.appointmentsBlock{
+    width: 15%;
+    height: 100vh;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-family: "Montserrat", sans-serif;
+    float: right;
+    border-radius: 20px 0px 0px 20px;
+    padding: 10px;
+}
+
+.appointmentsBlock h2 {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.newAppointBtn{
+    width: 200px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: var(--bg-color);
+}
+
+.newAppointBtn:hover {
+    transition: 0.2s ease-in-out;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+  }
