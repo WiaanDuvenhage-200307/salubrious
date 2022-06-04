@@ -63,7 +63,7 @@ const CalendarMod = () => {
 
     return (
         
-       <div className={styles.calendar}>
+       <div className={`${styles.calendar}`}>
            
             <div className={`rounded-xl ${styles.roundedXl}`}>
                 <Year/>
@@ -74,8 +74,8 @@ const CalendarMod = () => {
                     
                     {/* </div> */}
                     <div className={styles.buttons}>
-                    <Button className={styles.nextPrev} function={() => prevMonth(true)} name="<"/>
-                    <Button className={styles.nextPrev}  function={() => nextMonth(true)} name=">"/>
+                    <Button className={styles.nextPrev} function={() => prevMonth(true)} name="&#9666;"/>
+                    <Button className={styles.nextPrev}  function={() => nextMonth(true)} name="&#9656;"/>
                     </div>
 
                 </div>
