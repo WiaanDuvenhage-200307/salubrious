@@ -181,11 +181,11 @@ export default function Register() {
         } else {
             axios.post('http://localhost/sal_db/addUser.php', inputs)
             .then(function(response){
-             console.log(response);
+                console.log(response);
 
-             if(response.status === 200){
-                 navigate("/Appointments");
-             }
+                if(response.status === 200){
+                    navigate("/Appointments");
+                }
 
             });
         }
