@@ -1,8 +1,7 @@
 import React from 'react';
+import styles from './Date.module.css';
 
 const Date = () => {
-
-
     const dateTime = window.Date();
 
     console.log(dateTime);
@@ -13,9 +12,9 @@ const Date = () => {
     // let formatTime = dateTime.getHours() + ":" + dateTime.getMinutes() + ":" + dateTime.getSeconds()
     
     return (
-        <div className='dateTimeCom'>
+        <div className={styles.dateTimeCon}>
             <p>{formatDate}</p>
-            <p className='time'>{formatTime}</p>
+            <p className={styles.time}>{formatTime}</p>
         </div>
     );
 };

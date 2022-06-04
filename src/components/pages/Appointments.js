@@ -30,13 +30,14 @@ const Appointments = () => {
     }, [])
 
     useEffect(() => {
-        axios.post('http://localhost/api_six/readUserPosts.php', userId)
+        axios.get('http://localhost/sal_db/readUserPosts.php', userId)
         .then((res) =>{
             let data = res.data;
-            console.log(userId.activeUser);
+            console.log(userId);
 
             const slicedName = userId.activeUser;
             const [first, ...rest] = slicedName.split('.');
+            console.log(first);
             setName(first.toUpperCase());
 
 

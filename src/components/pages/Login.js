@@ -5,6 +5,7 @@ import Input from '../UI Components/Input';
 import LoginImg from '../assets/login.svg';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import styles from './Login.module.css';
 
 export default function Login() {
 
@@ -36,7 +37,7 @@ export default function Login() {
             console.log(response);
 
             if(response.data === true){
-                sessionStorage.setItem('activeUser', inputs.email); //set our session storage to the username
+                sessionStorage.setItem('activeUser', inputs.email); //set our session storage to the email
                 navigate('/Appointments'); 
             } else {
                 console.log("Not working!");
@@ -45,15 +46,15 @@ export default function Login() {
     }
 
   return (
-    <div className='login-bg'>
-        <div className="login-con">
-            <div className='login-img'>
+    <div className={styles.loginBg}>
+        <div className={styles.loginCon}>
+            <div className={styles.loginImg}>
                 <img src={LoginImg} alt="Missing Image"/>
             </div>
 
-            <div className="form-con">
+            <div className={styles.formCon}>
 
-                <img src={Logo} width={100}/>
+                <img className={styles.loginLogo} src={Logo} width={100}/>
                 <h1>LOGIN</h1>
                 <label for="email">Email</label>
                 <Input className='form-input' name='fname' type='email' onChange={emailVal} />
@@ -61,7 +62,7 @@ export default function Login() {
                 <label for="password">Password</label>
                 <Input className='form-input' name='fname' type='password' onChange={passwordVal} passIcon="hide-pass"/>
 
-                <Button name="LOGIN" className="signup-login-btn" function={() => handleSubmit(true)}/>
+                <Button name="LOGIN" className="signup-login-btn" function={handleSubmit}/>
                 <div className='btn-group'>
                     <p>New to Salubrious?</p>
                     <Button function={() => navigate("/Register")} name="REGISTER HERE" className="tersiary-btn"/>
