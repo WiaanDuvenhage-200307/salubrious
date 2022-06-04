@@ -36,7 +36,7 @@ export default function Login() {
             console.log(response);
 
             if(response.data === true){
-                sessionStorage.setItem('activeUser', inputs.username); //set our session storage to the username
+                sessionStorage.setItem('activeUser', inputs.email); //set our session storage to the username
                 navigate('/Appointments'); 
             } else {
                 console.log("Not working!");

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import AppointmentsCom from '../UI Components/AppointmentsCom';
 import CalendarCom from '../UI Components/CalendarCom';
 import Date from '../UI Components/Date';
@@ -6,13 +6,19 @@ import { useNavigate } from 'react-router-dom';
 import Nav from '../UI Components/Nav';
 import Dash from '../assets/dash.svg';
 import Logo from '../assets/logo.svg';
+import axios from 'axios';
 
-// TODO | Redesign Page and divide in 3 sections
 
 
 const Appointments = () => {
 
     const navigate = useNavigate();
+
+    const [userId, setUserId] = useState({
+        activeUser: sessionStorage.getItem('activeUser')
+    });
+
+    const [name, setName] = useState('');
 
     useEffect(() => {
         const userSession = sessionStorage.getItem('activeUser');
@@ -23,6 +29,26 @@ const Appointments = () => {
 
     }, [])
 
+    useEffect(() => {
+        axios.post('http://localhost/api_six/readUserPosts.php', userId)
+        .then((res) =>{
+            let data = res.data;
+            console.log(userId.activeUser);
+
+            const slicedName = userId.activeUser;
+            const [first, ...rest] = slicedName.split('.');
+            setName(first.toUpperCase());
+
+
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+    }, [])
+
+
+
     return (
         <div className='page'>
             <div className="leftPage">
@@ -30,7 +56,7 @@ const Appointments = () => {
             </div>
   
             <div className="middlePage">
-                <h1>Welcome, <span>John!</span></h1>
+                <h1>Welcome, <span>{name}</span></h1>
                 <Date />
                             
                 <div className='welcome'>
