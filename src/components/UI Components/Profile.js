@@ -13,6 +13,7 @@ const Profile = () => {
     });
 
     const [name, setName] = useState('');
+    const [rank, setRank] = useState('');
 
     const setLogout = () => {
         // sessionStorage.removeItem('activeUser');
@@ -22,30 +23,28 @@ const Profile = () => {
 
     }
 
+    const [receptionist, setReceptionist] = useState({
+        email: sessionStorage.getItem('activeUser'),
+        name: '',
+        rank: ''
+    })
+
     useEffect(() => {
-        axios.post('http://localhost/api_six/readUserPosts.php', userId)
-        .then((res) =>{
-            let data = res.data;
-            console.log(userId.activeUser);
-
-            const slicedName = userId.activeUser;
-            const [first, ...rest] = slicedName.split('.');
-            setName(first.toUpperCase());
-
-
+        axios.post('http://localhost/sal_db/getReceptionistinfo.php', JSON.stringify(receptionist))
+        .then((res) => {
+            console.log(res.data[0].name);
+            setName(res.data[0].name);
+            setRank(res.data[0].rank);
         })
-        .catch(err => {
-            console.log(err);
-        })
-
     }, [])
+
 
     return (
         <div className={styles.profileGroup}>
             <div className={styles.circle}>    
             </div>
             <h3>{name}</h3>
-            <h4>Head Receptionist</h4>
+            <h4>{rank}</h4>
             <Button className={styles.logOut} name="LOG OUT" function={() => setLogout(true)}/>
         </div>
     );

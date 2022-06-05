@@ -13,41 +13,35 @@ import axios from 'axios';
 const Appointments = () => {
 
     const navigate = useNavigate();
+    const [name, setName] = useState('');
+
+
+    const [receptionist, setReceptionist] = useState({
+        email: sessionStorage.getItem('activeUser'),
+        name: ''
+    })
+
+    useEffect(() => {
+        axios.post('http://localhost/sal_db/getReceptionistinfo.php', JSON.stringify(receptionist))
+        .then((res) => {
+            console.log(res.data[0].name);
+            setName(res.data[0].name);
+        })
+    }, [])
 
     const [userId, setUserId] = useState({
         activeUser: sessionStorage.getItem('activeUser')
     });
 
-    const [name, setName] = useState('');
 
     useEffect(() => {
         const userSession = sessionStorage.getItem('activeUser');
-        console.log(userSession);
+        // console.log(userSession);
         if(userSession === '' || userSession === null){
             navigate('/');
         }
 
     }, [])
-
-    useEffect(() => {
-        axios.get('http://localhost/sal_db/readUserPosts.php', userId)
-        .then((res) =>{
-            let data = res.data;
-            console.log(userId);
-
-            const slicedName = userId.activeUser;
-            const [first, ...rest] = slicedName.split('.');
-            console.log(first);
-            setName(first.toUpperCase());
-
-
-        })
-        .catch(err => {
-            console.log(err);
-        })
-
-    }, [])
-
 
 
     return (

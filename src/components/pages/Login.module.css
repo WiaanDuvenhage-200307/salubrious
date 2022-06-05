@@ -52,3 +52,14 @@
 .loginLogo{
     margin: 0 auto;
 }
+
+.heading{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 36px;
+    color: var(--primary-color);
+    font-weight: bold;
+}

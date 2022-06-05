@@ -55,7 +55,11 @@ export default function Login() {
             <div className={styles.formCon}>
 
                 <img className={styles.loginLogo} src={Logo} width={100}/>
-                <h1>LOGIN</h1>
+
+                <div className={styles.heading}>
+                    <h2>LOGIN</h2>
+                </div> 
+
                 <label for="email">Email</label>
                 <Input className='form-input' name='fname' type='email' onChange={emailVal} />
 

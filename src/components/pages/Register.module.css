@@ -17,9 +17,10 @@
 }
 
 .registerCon{
+    padding: 20px;
     margin: 0 auto;
-    width: 100%;
-    height: 100vh;
+    width: 50%;
+    height: 80vh;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -38,10 +39,15 @@
     width: 50%;
 }
 
-.formCon h1{
+.heading{
     text-align: center;
-    margin: 0 auto;
-    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 36px;
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
 .registerImg{
@@ -54,4 +60,19 @@
 
 .heading{
     margin: 0;
+}
+
+.dropDown{
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 30px;
+}
+
+.nameGroup{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 }

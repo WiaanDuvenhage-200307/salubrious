@@ -6,25 +6,29 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import registerLogo from '../assets/register.svg';
 import styles from './Register.module.css';
+import Dropdown from '../UI Components/Dropdown';
 
 export default function Register() {
 
     const navigate = useNavigate();
 
+    const genders = ['M', 'F'];
+
     const [inputs, setInputs] = useState({
         name: '',
-        surname: '', 
+        surname: '',
+        gender: '', 
         email: '',
         password: '',
         passwordCon: '',
         contact: '',
-        dateOfBirth: ''
+        age: ''
     });
 
     const [nameError, setNameError] = useState();
     const [lastError, setLastError] = useState();
+    const [genderError, setGenderError] = useState();
     const [emailError, setEmailError] = useState();
-    const [usernameError, setUsernameError] = useState();
     const [contactError, setContactError] = useState();
     const [passwordError, setPasswordError] = useState();
     const [passwordConError, setPasswordConError] = useState();
@@ -49,6 +53,13 @@ export default function Register() {
         console.log(inputs); 
     }
 
+    const genderVal = (e) => {
+        const value = e.target.value;
+        setInputs({...inputs, gender: value});
+        if(inputs.gender !== ''){setLastError();}
+        console.log(inputs); 
+    }
+
     const emailVal = (e) => {
         const mailcodex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const value = e.target.value;
@@ -63,7 +74,7 @@ export default function Register() {
     }
 
     const validateEmail = () => {
-        axios.post('http://localhost:8888/sal_db/authenticateEmail.php', inputs)
+        axios.post('http://localhost/sal_db/authenticateEmail.php', inputs)
         .then(function(response){
          console.log(response);
          if(response.data === "Available"){
@@ -76,21 +87,6 @@ export default function Register() {
             setEmailIcon();
             setEmailAvail();
             setEmailError();
-         }
-        });
-    }
-
-    const validateUser = () => {
-        axios.post('http://localhost:8888/api/authenticateUser.php', inputs)
-        .then(function(response){
-         console.log(response);
-         if(response.data === "Available"){
-            setUserAvail();
-            setUserIcon("insert valid icon");
-         } else {
-            setUserAvail("Username Is Not Available" );
-            setUserIcon("insert error img icon");
-            
          }
         });
     }
@@ -127,8 +123,8 @@ export default function Register() {
 
     const dateVal = e => {
         const value = e.target.value;
-        setInputs({...inputs, dateOfBirth: value});
-        if(inputs.dateOfBirth == new Date()){
+        setInputs({...inputs, age: value});
+        if(inputs.age == new Date()){
             setDateError("Invalid Date of Birth!");
         }
         console.log(inputs);
@@ -146,6 +142,12 @@ export default function Register() {
 
         if(inputs.surname === ''){
             setLastError("You aren't Seal... " );
+        } else {
+            setLastError();
+        }
+
+        if(inputs.gender === ''){
+            setLastError("Select a gender " );
         } else {
             setLastError();
         }
@@ -192,6 +194,8 @@ export default function Register() {
 
     }
 
+    const genderDrop = genders.map(item => <Dropdown dropItem={item} className={styles.dropDown} name="gender"/>)
+
   return (
     <div className={styles.registerBg}>
         <div className={styles.registerCon}>
@@ -200,29 +204,44 @@ export default function Register() {
             <div className={styles.formCon}>
 
                 <img className={styles.registerLogo} src={Logo} width={100}/>
-                <h1>REGISTER</h1>
-                <label for="name">First Name</label>
-                <Input className='form-input' name='name' type='text' onChange={firstVal}/>
+                <div className={styles.heading}>
+                    <h2>REGISTER</h2>
+                </div>
+         
+                <div className={styles.nameGroup}>
+                    <div className={styles.group}>
+                        <label for="name">First Name</label>
+                        <Input className='form-input' name='name' type='text' onChange={firstVal}/>
+                    </div>
 
-                <label for="lname">Last Name</label>
-                <Input className='form-input' name='fname' type='text' onChange={lastVal}/>
+                    <div className={styles.group}>
+                        <label for="surname">Last Name</label>
+                        <Input className='form-input' name='surname' type='text' onChange={lastVal}/>
+                    </div>
+
+                </div>
+
+                <label for="gender">Gender</label>
+                <select className={styles.dropDown} name="gender" onChange={genderVal}>
+                    {genderDrop}
+                </select>
 
                 <label for="email">Email</label>
-                <Input className='form-input' name='fname' type='text' onChange={emailVal}/>
+                <Input className='form-input' name='email' type='text' onChange={emailVal}/>
 
                 <label for="password">Password</label>
-                <Input className='form-input' name='fname' type='password'  passIcon="hide-pass" onChange={passwordVal}/>
+                <Input className='form-input' name='password' type='password'  passIcon="hide-pass" onChange={passwordVal}/>
 
-                <label for="password">Confirm Password</label>
-                <Input className='form-input' name='fname' type='password' passIcon="hide-pass" onChange={passwordConVal}/>
+                <label for="passwordCon">Confirm Password</label>
+                <Input className='form-input' name='passwordCon' type='password' passIcon="hide-pass" onChange={passwordConVal}/>
 
-                <label for="phone">Phone Number (optional)</label>
-                <Input className='form-input' name='fname' type='text' placeholder='(+27)' onChange={contactVal}/>
+                <label for="phone_number">Phone Number (optional)</label>
+                <Input className='form-input' name='contact' type='text' placeholder='(+27)' onChange={contactVal}/>
 
-                <label for="dob">Date of Birth</label>
-                <Input className='form-input' name='dob' type='date' onChange={dateVal}/>
+                <label for="age">Age</label>
+                <Input className='form-input' name='age' type='number' onChange={dateVal}/>
 
-                <Button function={() => handleSubmit(true)} name="REGISTER" className="signup-login-btn"/>
+                <Button function={handleSubmit} name="REGISTER" className="signup-login-btn"/>
                 <div className='btn-group'>
                     <p>Already a receptionist?</p>
                     <Button function={() => navigate("/")} name="LOGIN HERE" className="tersiary-btn"/>
@@ -231,7 +250,7 @@ export default function Register() {
             </div>
 
         <div className={styles.loginImg}>
-            <img src={registerLogo} width={500}/>
+            <img src={registerLogo} width={400}/>
         </div>
     </div>
     </div>

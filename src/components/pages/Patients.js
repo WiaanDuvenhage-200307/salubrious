@@ -1,12 +1,24 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Nav from '../UI Components/Nav';
 import Table from '../UI Components/Table';
 import Modal from '../UI Components/Modal';
 import Patient from '../assets/patient.svg';
+import { useNavigate } from 'react-router-dom';
 
 const Patients = () => {
 
+    const navigate = useNavigate();
+
     const[modalOpen , setModalOpen] = useState(false);
+
+    useEffect(() => {
+        const userSession = sessionStorage.getItem('activeUser');
+        console.log(userSession);
+        if(userSession === '' || userSession === null){
+            navigate('/');
+        }
+
+    }, [])
 
     return (
         <>

@@ -8,8 +8,11 @@
     margin: 0 auto;
 }
 
-h3 {
+.profileGroup h3 {
     font-family: "Montserrat", "sans-serif";
+    font-weight: bold;
+    font-size: 18px;
+    
 }
 
 h4 {

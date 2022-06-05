@@ -5,6 +5,7 @@ import Patients from "./components/pages/Patients";
 import Doctors from "./components/pages/Doctors";
 import Register from "./components/pages/Register";
 import Login from './components/pages/Login';
+import Receptionists from './components/pages/Receptionists';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path='/Appointments' element = {<Appointments/>}></Route>
         <Route path='/Patients' element = {<Patients/>}></Route>
         <Route path='/Doctors' element = {<Doctors/>}></Route>
+        <Route path='/Receptionists' element = {<Receptionists/>}></Route>
     </Routes>
     </div>
   );
