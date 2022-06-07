@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../assets/no-text-logo.svg';
+import logo from '../assets/logo.svg';
 import "https://kit.fontawesome.com/3d7d8906d0.js";
 import { Link } from 'react-router-dom';
 import Profile from './Profile';
