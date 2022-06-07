@@ -7,6 +7,7 @@ import Nav from '../UI Components/Nav';
 import Dash from '../assets/dash.svg';
 import Logo from '../assets/logo.svg';
 import axios from 'axios';
+import Preloader from '../UI Components/Preloader';
 
 
 
@@ -51,6 +52,7 @@ const Appointments = () => {
             </div>
   
             <div className="middlePage">
+                {/* <Preloader/> */}
                 <h1>Welcome, <span>{name}</span></h1>
                 <Date />
                             
@@ -70,7 +72,8 @@ const Appointments = () => {
             <div className="rightPage">
                 <AppointmentsCom/>
             </div>
-    
+
+            
            
         </div>
     );
