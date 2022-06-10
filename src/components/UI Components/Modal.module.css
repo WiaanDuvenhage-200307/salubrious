@@ -2,7 +2,7 @@
 
 /* Modal styling */
 .modal{
-    background-color: var(--background-light);
+    background-color: var(--bg-color);
     float: left;
     width: 50%;
     height: auto;
@@ -37,7 +37,8 @@
 }
 
 .modalBody{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .modalBtns{
@@ -95,4 +96,9 @@
     background-color: var(--primary-color);
     color: var();
     transition: 0.2s ease-in-out;
+}
+
+.modalInput{
+    width: 50%;
+    float: left;
 }
