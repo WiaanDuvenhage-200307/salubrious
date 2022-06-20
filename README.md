@@ -257,3 +257,4 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 - [Cooolors](https://coolors.co/)
 - [Figma](https://www.figma.com/)
 - [My Pinterest Board](https://za.pinterest.com/doubleudeedesigns/budget-app/)
+- [(w3schools) SQL SELECT Statement](https://www.w3schools.com/sql/sql_select.asp)
