@@ -7,7 +7,14 @@ export default function Input(props) {
   return (
     <div>
         <div className={styling.inputContainer}>
-            <input className={props.className} name={props.name} type={props.type} placeholder={props.placeholder} onChange={props.onChange}/>
+            <input 
+                className={props.className}
+                name={props.name} 
+                type={props.type} 
+                placeholder={props.placeholder} 
+                onChange={props.onChange}
+                id={props.id}
+            />
             {props.passIcon != undefined ? <img className={styling.passIcon} src={require(`../assets/${props.passIcon}.svg`)}/> : null}
         </div>
     </div>

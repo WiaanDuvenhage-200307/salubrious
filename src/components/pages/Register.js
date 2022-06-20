@@ -4,7 +4,6 @@ import Button from '../UI Components/Buttons/Button';
 import Input from '../UI Components/Input';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import registerLogo from '../assets/register.svg';
 import styles from './Register.module.css';
 import Dropdown from '../UI Components/Dropdown';
 
@@ -15,6 +14,7 @@ export default function Register() {
     const genders = ['M', 'F'];
 
     const [inputs, setInputs] = useState({
+        image: '',
         name: '',
         surname: '',
         gender: '', 
@@ -39,6 +39,24 @@ export default function Register() {
 
     const [emailIcon, setEmailIcon] = useState();
     const [userIcon, setUserIcon] = useState();
+
+    const imageVal = (e) => {           
+        let file = e.target.files[0];
+        let reader = new FileReader();
+
+        reader.onloadend = function() {
+            console.log(reader.result);
+            let imgFile = reader.result;
+
+            setInputs({...inputs, image: imgFile});
+
+            let image = new Image();
+            image.src = reader.result;
+            document.getElementById('profileimg').appendChild(image);
+        
+        }
+        reader.readAsDataURL(file);
+    }
 
     const firstVal = (e) => {
         const value = e.target.value;
@@ -249,8 +267,13 @@ export default function Register() {
 
             </div>
 
-        <div className={styles.loginImg}>
-            <img src={registerLogo} width={400}/>
+        <div className={styles.profileUpload}>
+            <p>Upload a Photo of Yourself</p>
+            <label for="file-input">
+                <Input id="file-input" type="file" onChange={imageVal}/>
+            </label>
+ 
+            <div id="profileimg" className='profile_img'></div>
         </div>
     </div>
     </div>
