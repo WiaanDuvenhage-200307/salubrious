@@ -4,12 +4,16 @@ import Table from '../UI Components/Table';
 import Modal from '../UI Components/Modal';
 import Patient from '../assets/patient.svg';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import {TableRow} from '../UI Components/Table';
 
 const Patients = () => {
 
     const navigate = useNavigate();
 
     const[modalOpen , setModalOpen] = useState(false);
+
+    const [patients, setPatients] = useState([]);
 
     useEffect(() => {
         const userSession = sessionStorage.getItem('activeUser');
@@ -18,6 +22,14 @@ const Patients = () => {
             navigate('/');
         }
 
+    }, [])
+
+    useEffect(() => {
+        axios.get('http://localhost/sal_db/getPatients.php')
+        .then((res => {
+            let data = res.data;
+            setPatients(data);
+        }))
     }, [])
 
     return (
@@ -37,7 +49,8 @@ const Patients = () => {
                     <img src={Patient} width={200}/>
                 </div>
 
-                <Table name="DOCTOR NAME" number="DOCTOR ID" title="Surgeon"/>
+                {patients.map(item => (<TableRow headingTwo="PATIENT NAME" headingThree="MEDICAL AID NUMBER" headingFour="CONTACT NUMBER" name={item.name + " " + item.surname} number={item.medical_aid_number} title={item.age + " " + item.gender} Cnumber={item.phone_number}/>)
+                )} 
             </div>
             
             

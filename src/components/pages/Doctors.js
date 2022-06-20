@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Modal from '../UI Components/Modal';
 import Nav from '../UI Components/Nav';
-import Table from '../UI Components/Table';
+import Table, { TableRow } from '../UI Components/Table';
 import Doctor from '../assets/doctor.svg';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Doctors = () => {
 
     const[modalOpen , setModalOpen] = useState(false);
     const navigate = useNavigate();
+    const [doctors, setDoctors] = useState([]);
 
     useEffect(() => {
         const userSession = sessionStorage.getItem('activeUser');
@@ -18,6 +20,14 @@ const Doctors = () => {
             navigate('/');
         }
 
+    }, [])
+
+    useEffect(() => {
+        axios.get('http://localhost/sal_db/getDoctors.php')
+        .then((res => {
+            let data = res.data;
+            setDoctors(data);
+        }))
     }, [])
 
     return (
@@ -37,7 +47,9 @@ const Doctors = () => {
                     <img src={Doctor} width={300}/>
                 </div>
 
-                <Table name="DOCTOR NAME" number="DOCTOR ID" title="Surgeon"/>
+                {doctors.map(item => (<TableRow headingTwo="DOCTOR NAME" headingThree="DOCTOR ID" headingFour="CONTACT NUMBER" Cnumber={item.phone_number}  name={item.name + " " + item.surname} number={item.doctor_id} title={item.specialisation}/>)
+                )}   
+
             </div>
             
             
