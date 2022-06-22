@@ -57,7 +57,7 @@ const Patients = () => {
             
            
         </div>
-        {modalOpen && <Modal title="Update Doctors" openModal={setModalOpen} />}
+        {modalOpen && <Modal heading="update patient" openModal={setModalOpen} />}
         </>
     );
 };

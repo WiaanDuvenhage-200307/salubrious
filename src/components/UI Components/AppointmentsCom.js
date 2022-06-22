@@ -29,7 +29,7 @@ const AppointmentsCom = () => {
             <div className={styles.appointmentsBlock}>
                 <h2>Appointments</h2>
                 <div>
-                    {userId.activeUser == "jane.lambert@salubrious.co.za" ? <Button name="New &#43;" className={styles.newAppointBtn} function={() => {setModalOpen(true)}}/> : ""}
+                    {userId.activeUser == "jane.lambert@salubrious.co.za" ? <Button name="New &#43;" className={styles.newAppointBtn} onClick={() => {setModalOpen(true)}}/> : ""}
                 </div>
 
                 {appointments.map(item => (<AppointmentList date={item.date} doctorName={item.doctor_name} patientName={item.patient_name} time={item.time}/>)

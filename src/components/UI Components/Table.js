@@ -20,8 +20,8 @@ export function TableRow(props){
             <td><span className={styles.pName}>{props.name}</span><br/>{props.title}</td>
             <td>{props.number}</td>
             <td><span className={styles.pName}>{props.Cnumber}</span><br />{props.doctorName}</td>
-            {userId.activeUser == "jane.lambert@salubrious.co.za" ? <td><Button className={styles.updateBtn} name="UPDATE" function={() => {setModalOpen(true)}}/></td> : "" }
-            {modalOpen && <Modal body="example text" openModal={setModalOpen} />}
+            {userId.activeUser == "jane.lambert@salubrious.co.za" ? <td><Button className={styles.updateBtn} name="UPDATE" onClick={() => {setModalOpen(true)}}/></td> : "" }
+            {modalOpen && <Modal heading={props.heading} openModal={setModalOpen} />}
         </tr>
     )
 } 
@@ -43,7 +43,6 @@ const Table = (props) => {
             </thead>
             <TableRow/>
         </table>
-        {modalOpen && <Modal body="example text" openModal={setModalOpen} />}
         
         </>
         
