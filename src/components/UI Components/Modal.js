@@ -16,7 +16,7 @@ const Modal = ({heading, openModal}) => {
             <Button name={<i class="fa-solid fa-x"></i>} onClick={closeTheModal} className={styles.closeBtn}/>
             <div className={styles.modalTitle}>{heading}</div>
             <div className={styles.modalBody}>
-                <label for="fname">Name</label>
+                {/* <label for="fname">Name</label>
                 <Input className='form-input' name='fname' type='text'/>
                 <label for="fname">Surname</label>
                 <Input className='form-input' name='fname' type='text'/>
@@ -25,7 +25,7 @@ const Modal = ({heading, openModal}) => {
                 <label for="fname">Time</label>
                 <Input className='form-input' name='fname' type='time'/>
                 <label for="fname">Reason of Appointment</label>
-                <Input className='form-input' name='fname' type='text'/>
+                <Input className='form-input' name='fname' type='text'/> */}
             </div>
             <div className={styles.modalBtns}>
                 <Button name="Cancel" onClick={() => openModal(false)} className={styles.cancel}/>
