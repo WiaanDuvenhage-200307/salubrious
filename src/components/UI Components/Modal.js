@@ -21,8 +21,6 @@ const Modal = ({openModal,props}) => {
                 <Input className='form-input' name='fname' type='time'/>
                 <label for="fname">Reason of Appointment</label>
                 <Input className='form-input' name='fname' type='text'/>
-                <label for="fname">Room</label>
-                <Input className='form-input' name='fname' type='number'/>
             </div>
             <div className={styles.modalBtns}>
                 <Button name="Cancel" function={() => openModal(false)} className={styles.cancel}/>

@@ -32,11 +32,6 @@ const Patients = () => {
         }))
     }, [])
 
-    const [userId, setUserId] = useState({
-        activeUser: sessionStorage.getItem('activeUser')
-        
-    });
-
     return (
         <>
         <div className='page'>

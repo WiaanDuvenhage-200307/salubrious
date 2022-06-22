@@ -6,6 +6,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './Register.module.css';
 import Dropdown from '../UI Components/Dropdown';
+import ValidateLeft from '../UI Components/ValidateLeft';
+import ValidateRight from '../UI Components/ValidateRight';
 
 export default function Register() {
 
@@ -17,12 +19,13 @@ export default function Register() {
         image: '',
         name: '',
         surname: '',
-        gender: '', 
+        age: '',
+        gender: '',
+        contact: '', 
         email: '',
         password: '',
-        passwordCon: '',
-        contact: '',
-        age: ''
+        passwordCon: ''
+
     });
 
     const [nameError, setNameError] = useState();
@@ -33,6 +36,7 @@ export default function Register() {
     const [passwordError, setPasswordError] = useState();
     const [passwordConError, setPasswordConError] = useState();
     const [dateError, setDateError] = useState();
+    const [ageError, setAgeError] = useState()
 
     const [emailAvail, setEmailAvail] = useState();
     const [userAvail, setUserAvail] = useState();
@@ -61,20 +65,20 @@ export default function Register() {
     const firstVal = (e) => {
         const value = e.target.value;
         setInputs({...inputs, name: value});
-        if(inputs.name !== ''){setNameError();} 
+        if(inputs.name.length < 2){setNameError("Wrong");}else return setNameError();
     }
 
     const lastVal = (e) => {
         const value = e.target.value;
         setInputs({...inputs, surname: value});
-        if(inputs.surname !== ''){setLastError();}
+        if(inputs.surname.length < 2){setLastError("Wrong");}else return setLastError();
         console.log(inputs); 
     }
 
     const genderVal = (e) => {
         const value = e.target.value;
         setInputs({...inputs, gender: value});
-        if(inputs.gender !== ''){setLastError();}
+        if(inputs.gender !== ''){setGenderError();}
         console.log(inputs); 
     }
 
@@ -86,7 +90,7 @@ export default function Register() {
             setEmailError();
         } 
         if(!value.match(mailcodex)){
-            setEmailError("Email is not a valid format");
+            setEmailError(<ValidateLeft message="This email is incorrect"/>);
         }    
         console.log(inputs);
     }
@@ -96,11 +100,11 @@ export default function Register() {
         .then(function(response){
          console.log(response);
          if(response.data === "Available"){
-            setEmailIcon('insert valid icon');
+            // setEmailIcon('insert valid icon');
             setEmailAvail();
          } else if(response.data === "Not Available") {
-            setEmailAvail("Email Is Not Available" );
-            setEmailIcon("insert error img icon");
+            setEmailAvail(<ValidateLeft message="Email is not available"/>);
+            // setEmailIcon("insert error img icon");
          } else if(response.data === "") {
             setEmailIcon();
             setEmailAvail();
@@ -153,45 +157,55 @@ export default function Register() {
         console.log(inputs);
 
         if(inputs.name === ''){
-            setNameError("Everyone has one..." );
+            setNameError(<ValidateLeft message="Enter A Name"/>);
         } else {
             setNameError();
         }
 
         if(inputs.surname === ''){
-            setLastError("You aren't Seal... " );
+            setLastError(<ValidateRight message="Enter Your Surname" />);
         } else {
             setLastError();
         }
 
         if(inputs.gender === ''){
-            setLastError("Select a gender " );
+            setGenderError("Select a gender " );
         } else {
-            setLastError();
+            setGenderError();
         }
 
         if(inputs.email === ''){
-            setEmailError("You must have an email" );
+            setEmailError(<ValidateLeft message="Enter your Email"/>);
         } else {
             setEmailError();
         }
 
         if(inputs.contact === ''){
-            setContactError("We will call you all the time");
+            setContactError(<ValidateRight message="Enter your Phone Number"/>);
         } else {
             setContactError();
         }
 
         if(inputs.password === ''){
-            setPasswordError("Keep it simple and easy..." );
+            setPasswordError(<ValidateLeft message="Enter a Password"/>);
         } else {
             setPasswordError();
         }
 
         if(inputs.passwordCon === ''){
-            setPasswordConError("They Kinda need to match...");
+            setPasswordConError(<ValidateLeft message="Re-Type Password"/>);
         } else {
             setPasswordConError();
+        }
+
+        if(inputs.contact === ''){
+            setContactError(<ValidateLeft message="Enter Your Phone Number"/>)
+        } else {
+            setContactError();
+        }
+
+        if(inputs.age === ""){
+            setAgeError(<ValidateRight message="Enter Your Age"/>)
         }
 
         let result = Object.values(inputs).some(o => o === '');
@@ -230,11 +244,13 @@ export default function Register() {
                     <div className={styles.group}>
                         <label for="name">First Name</label>
                         <Input className='form-input' name='name' type='text' onChange={firstVal}/>
-                    </div>
+                        {nameError}
+                    </div> 
 
                     <div className={styles.group}>
                         <label for="surname">Last Name</label>
                         <Input className='form-input' name='surname' type='text' onChange={lastVal}/>
+                        {lastError}
                     </div>
 
                 </div>
@@ -245,19 +261,24 @@ export default function Register() {
                 </select>
 
                 <label for="email">Email</label>
-                <Input className='form-input' name='email' type='text' onChange={emailVal}/>
+                <Input className='form-input' name='email' type='text'  onChange={emailVal}/>
+                {emailError}
 
                 <label for="password">Password</label>
                 <Input className='form-input' name='password' type='password'  passIcon="hide-pass" onChange={passwordVal}/>
+                {passwordError}
 
                 <label for="passwordCon">Confirm Password</label>
                 <Input className='form-input' name='passwordCon' type='password' passIcon="hide-pass" onChange={passwordConVal}/>
+                {passwordConError}
 
                 <label for="phone_number">Phone Number (optional)</label>
                 <Input className='form-input' name='contact' type='text' placeholder='(+27)' onChange={contactVal}/>
+                {contactError}
 
                 <label for="age">Age</label>
                 <Input className='form-input' name='age' type='number' onChange={dateVal}/>
+                {ageError}
 
                 <Button function={handleSubmit} name="REGISTER" className="signup-login-btn"/>
                 <div className='btn-group'>

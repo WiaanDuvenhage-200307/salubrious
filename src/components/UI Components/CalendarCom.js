@@ -88,10 +88,10 @@ const CalendarMod = () => {
                             week.map((day, di) => 
                             <div onClick={() => setSelectedDate(day)} className={`h-14 w-14 flex items-center justify-center ${styles.days} ${dayColor(day)}`}>
                                     {format(day, 'dd')}
-                                    <div className={styles.notificationDot}>
+                                    {/* <div className={styles.notificationDot}>
                                         <div className={styles.hasAppointment}></div>
                                         <div className={styles.hasAppointment}></div>
-                                    </div>
+                                    </div> */}
                             </div>)
                         }
                     </div>)

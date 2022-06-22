@@ -26,6 +26,7 @@
     align-items: center;
     background-color: var(--bg-color);
     border-radius: 20px;
+    overflow-y: scroll;
     /* box-shadow: 10px 12px 37px 0px rgba(0,0,0,0.75);
 -webkit-box-shadow: 10px 12px 37px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 10px 12px 37px 0px rgba(0,0,0,0.75); */

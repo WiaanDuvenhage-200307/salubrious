@@ -19,7 +19,7 @@ export default function Login() {
     const emailVal = (e) => {
         const value = e.target.value;
         setInputs({...inputs, email: value});
-        // Here you will validate that it is not empty 
+        // Here you will validate that it is not empty
     }
 
     const passwordVal = (e) => {
@@ -63,8 +63,10 @@ export default function Login() {
                 <label for="email">Email</label>
                 <Input className='form-input' name='fname' type='email' onChange={emailVal} />
 
+
                 <label for="password">Password</label>
                 <Input className='form-input' name='fname' type='password' onChange={passwordVal} passIcon="hide-pass"/>
+
 
                 <Button name="LOGIN" className="signup-login-btn" function={handleSubmit}/>
                 <div className='btn-group'>
