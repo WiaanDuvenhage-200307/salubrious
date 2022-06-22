@@ -11,6 +11,11 @@ const AppointmentsCom = () => {
     const[modalOpen , setModalOpen] = useState(false);
     const [appointments, setAppointments] = useState([]);
 
+    const [userId, setUserId] = useState({
+        activeUser: sessionStorage.getItem('activeUser')
+        
+    });
+
     useEffect(() => {
         axios.get('http://localhost/sal_db/getAppointments.php')
         .then((res => {
@@ -24,7 +29,7 @@ const AppointmentsCom = () => {
             <div className={styles.appointmentsBlock}>
                 <h2>Appointments</h2>
                 <div>
-                    <Button name="New Appointment+" className={styles.newAppointBtn} function={() => {setModalOpen(true)}}/>
+                    {userId.activeUser == "jane.lambert@salubrious.co.za" ? <Button name="New &#43;" className={styles.newAppointBtn} function={() => {setModalOpen(true)}}/> : ""}
                 </div>
 
                 {appointments.map(item => (<AppointmentList date={item.date} doctorName={item.doctor_name} patientName={item.patient_name} time={item.time}/>)

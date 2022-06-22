@@ -47,7 +47,7 @@ const Doctors = () => {
                     <img src={Doctor} width={300}/>
                 </div>
 
-                {doctors.map(item => (<TableRow headingTwo="DOCTOR NAME" headingThree="DOCTOR ID" headingFour="CONTACT NUMBER" Cnumber={item.phone_number}  name={item.name + " " + item.surname} number={item.doctor_id} title={item.specialisation}/>)
+                {doctors.map(item => (<TableRow headingTwo="DOCTOR NAME" headingThree="DOCTOR ID" headingFour="CONTACT NUMBER" Cnumber={item.phone_number}  name={item.name + " " + item.surname} number={item.doctor_id} title={item.specialisation} heading="Update Doctor"/>)
                 )}   
 
             </div>
@@ -56,7 +56,7 @@ const Doctors = () => {
             
            
         </div>
-        {modalOpen && <Modal title="Update Doctors" openModal={setModalOpen} />}
+        {/* {modalOpen && <Modal title="Update Doctors" openModal={setModalOpen} />} */}
         </>
     );
 };

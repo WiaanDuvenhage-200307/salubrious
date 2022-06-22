@@ -1,12 +1,12 @@
 @import '../../index.css';
 
 /* Table styling */
-table{
-    width:80%;
+.table{
+    width:100%;
     background-color: var(--background-light);
     color: var(--secondary-color);
     border-radius: 20px;
-    margin: 5%;
+    margin: 5% auto;
 }
 
 tr{

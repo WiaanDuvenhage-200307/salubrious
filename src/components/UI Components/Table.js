@@ -7,13 +7,21 @@ import './Table.module.css';
 
 export function TableRow(props){
     const[modalOpen , setModalOpen] = useState(false);
+
+    const [userId, setUserId] = useState({
+        activeUser: sessionStorage.getItem('activeUser')
+        
+    });
+    console.log(userId.activeUser);
+
     return(
-        <tr>
+        <tr className={styles.tableRow}>
             <td className={styles.tableImg}><img src='https://via.placeholder.com/50'/></td>
-            <td><span className={styles.pName}>Dr. {props.name}</span><br/>{props.title}</td>
+            <td><span className={styles.pName}>{props.name}</span><br/>{props.title}</td>
             <td>{props.number}</td>
             <td><span className={styles.pName}>{props.Cnumber}</span><br />{props.doctorName}</td>
-            <td><Button className={styles.updateBtn} name="UPDATE" function={() => {setModalOpen(true)}}/></td> 
+            {userId.activeUser == "jane.lambert@salubrious.co.za" ? <td><Button className={styles.updateBtn} name="UPDATE" function={() => {setModalOpen(true)}}/></td> : "" }
+            {modalOpen && <Modal heading={props.heading} body="example text" openModal={setModalOpen} />}
         </tr>
     )
 } 
@@ -35,7 +43,7 @@ const Table = (props) => {
             </thead>
             <TableRow/>
         </table>
-        {modalOpen && <Modal heading="Add an Appointment" body="example text" openModal={setModalOpen} />}
+        {modalOpen && <Modal heading={props.heading} body="example text" openModal={setModalOpen} />}
         
         </>
         

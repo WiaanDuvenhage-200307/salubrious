@@ -32,6 +32,11 @@ const Patients = () => {
         }))
     }, [])
 
+    const [userId, setUserId] = useState({
+        activeUser: sessionStorage.getItem('activeUser')
+        
+    });
+
     return (
         <>
         <div className='page'>
@@ -49,7 +54,7 @@ const Patients = () => {
                     <img src={Patient} width={200}/>
                 </div>
 
-                {patients.map(item => (<TableRow headingTwo="PATIENT NAME" headingThree="MEDICAL AID NUMBER" headingFour="CONTACT NUMBER" name={item.name + " " + item.surname} number={item.medical_aid_number} title={item.age + " " + item.gender} Cnumber={item.phone_number}/>)
+                {patients.map(item => (<TableRow headingTwo="PATIENT NAME" headingThree="MEDICAL AID NUMBER" headingFour="CONTACT NUMBER" name={item.name + " " + item.surname} number={item.medical_aid_number} title={item.age + " " + item.gender} Cnumber={item.phone_number} heading="Update Patient"/>)
                 )} 
             </div>
             

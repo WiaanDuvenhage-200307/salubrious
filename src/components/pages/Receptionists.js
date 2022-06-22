@@ -1,9 +1,24 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Nav from '../UI Components/Nav';
 import Table from '../UI Components/Table';
 import Receptionist from '../assets/receptionist.svg';
+import { TableRow } from '../UI Components/Table';
+import axios from 'axios';
+import Modal from '../UI Components/Modal';
 
-export default function Receptionists() {
+export default function Receptionists(props) {
+
+    const [receptionists, setReceptionists] = useState([]);
+    // const[modalOpen , setModalOpen] = useState(false);
+
+    useEffect(() => {
+        axios.get('http://localhost/sal_db/getReceptionists.php')
+        .then((res => {
+            let data = res.data;
+            setReceptionists(data);
+        }))
+    }, [])
+
   return (
     <div>
         <div className="leftPage">
@@ -19,7 +34,9 @@ export default function Receptionists() {
                     <img src={Receptionist} width={300}/>
             </div>
 
-            <Table name="DOCTOR NAME" number="DOCTOR ID" title="Surgeon"/>
+            {receptionists.map(item => (<TableRow headingTwo="PATIENT NAME" headingThree="MEDICAL AID NUMBER" headingFour="CONTACT NUMBER" name={item.name + " " + item.surname} number={item.phone_number} title={item.rank} Cnumber={item.email} heading="Update Receptionist"/>)
+            )} 
+            {/* {modalOpen && <Modal heading="Update Receptionist" body="example text" openModal={setModalOpen} />} */}
         </div>
     </div>
   )
