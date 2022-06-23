@@ -5,7 +5,7 @@ import styles from './Table.module.css';
 import './Table.module.css';
 
 
-export function TableRow(props){
+export default function TableRow(props){
     const[modalOpen , setModalOpen] = useState(false);
 
     const [userId, setUserId] = useState({
@@ -25,28 +25,3 @@ export function TableRow(props){
         </tr>
     )
 } 
-
-const Table = (props) => {
-
-    const[modalOpen , setModalOpen] = useState(false);
-
-
-
-    return (
-        <>
-        <table className={styles.table}>
-            <thead>
-                <th>PROFILE IMAGE</th>
-                <th>{props.headingTwo}</th>
-                <th>{props.headingThree}</th>
-                <th>{props.headingFour}</th>
-            </thead>
-            <TableRow/>
-        </table>
-        
-        </>
-        
-    );
-};
-
-export default Table;

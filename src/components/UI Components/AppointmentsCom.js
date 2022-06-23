@@ -24,7 +24,7 @@ const AppointmentsCom = () => {
         .then((res => {
             let data = res.data;
             setAppointments(data);
-            let arr = []
+            let arr = ['Please Select...'];
             for(let i = 0; i < data.length; i++){
                 arr.push(data[i].doctor_name);
                 setDoctors(arr);
@@ -108,7 +108,7 @@ const AppointmentsCom = () => {
         }
 
         const doctorDrop = doctors.map(item => <Dropdown dropItem={item} className={styles.dropDown} name="doctor"/>)
-
+        
         const postToDb = () => {
             axios.post('http://localhost/sal_db/addAppointment.php', inputs)
             .then(function(response){

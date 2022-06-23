@@ -1,19 +1,28 @@
 import React, {useState, useEffect} from 'react';
 import Nav from '../UI Components/Nav';
-import Table from '../UI Components/Table';
+// import Table from '../UI Components/Table';
 import Modal from '../UI Components/Modal';
 import Patient from '../assets/patient.svg';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import {TableRow} from '../UI Components/Table';
+import TableRow from '../UI Components/Table';
+import Input from '../UI Components/Input';
+import Button from '../UI Components/Buttons/Button';
+import styles from './Patients.module.css';
 
-const Patients = () => {
+const Patients = (props) => {
 
     const navigate = useNavigate();
 
     const[modalOpen , setModalOpen] = useState(false);
+    const [newModal, setNewModal] = useState(false)
 
     const [patients, setPatients] = useState([]);
+
+    const [userId, setUserId] = useState({
+        activeUser: sessionStorage.getItem('activeUser')
+        
+    });
 
     useEffect(() => {
         const userSession = sessionStorage.getItem('activeUser');
@@ -32,6 +41,25 @@ const Patients = () => {
         }))
     }, [])
 
+    const UpdatePatient = () => {
+    
+        return(
+            <>
+                <h2 className={styles.modalHeading}>Update Patient</h2>
+                <label htmlFor='pfp'>Change Profile Pic</label>
+                <Input type='file' name='pfp'/>
+                <label htmlFor="patientName">Name</label>
+                <Input className='form-input' name='name' type='text'/>
+                <label htmlFor="date">Medical Aid Number</label>
+                <Input className="form-input" name="date" type="text"/>
+                <label htmlFor="fname">Contact Number</label>
+                <Input className='form-input' name='reason' type='text'/>
+                <Button name="Save" className={styles.save}/>
+            </>
+        )
+    
+    }
+
     return (
         <>
         <div className='page'>
@@ -48,16 +76,33 @@ const Patients = () => {
                     </p>
                     <img src={Patient} width={200}/>
                 </div>
+                <Button className={styles.addBtn} name="Add Patient &#43;" onClick={() => {setModalOpen(true)}}/>
+                <table className={styles.table}>
+                    <thead>
+                        <th>PROFILE IMAGE</th>
+                        <th>PATIENT NAME</th>
+                        <th>MEDICAL AID NUMBER</th>
+                        <th>CONTACT NUMBER</th>
+                    </thead>
+                    {/* {patients.map((item, key) => (<tr name={item.name + " " + item.surname} number={item.medical_aid_number} title={item.age + " " + item.gender} Cnumber={item.phone_number} heading="Update Patient" />)
+                    )}  */}
+                    {patients.map((item,index)=>(<tr key={index}>
+                        <td className={styles.tableImg}>{item.proile_image}</td>
+                        <td><span className={styles.pName}>{item.name + " " + item.surname}</span><br /><span className={styles.subHeading}>{item.age + " " + item.gender}</span></td>
+                        <td className={styles.aidNumber}>{item.medical_aid_number}</td>
+                        <td>{item.phone_number}</td>
+                        <td>{userId.activeUser == "jane.lambert@salubrious.co.za" ? <td><Button className={styles.updateBtn} name="UPDATE" onClick={() => {setModalOpen(true)}}/></td> : "" }</td>
+                    </tr>))}
+                </table>
 
-                {patients.map(item => (<TableRow headingTwo="PATIENT NAME" headingThree="MEDICAL AID NUMBER" headingFour="CONTACT NUMBER" name={item.name + " " + item.surname} number={item.medical_aid_number} title={item.age + " " + item.gender} Cnumber={item.phone_number} heading="Update Patient"/>)
-                )} 
+                {modalOpen && <Modal heading={props.heading} openModal={setModalOpen} newAppoint={<UpdatePatient/>}/>}
             </div>
             
             
             
            
         </div>
-        {modalOpen && <Modal heading="update patient" openModal={setModalOpen} />}
+
         </>
     );
 };

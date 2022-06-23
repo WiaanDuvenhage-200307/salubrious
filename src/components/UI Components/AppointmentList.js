@@ -1,7 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './AppointmentList.module.css';
+import Button from './Buttons/Button';
 
 export default function AppointmentList(props) {
+
+    // const [isHovering, setIsHovering] = useState(false);
+
+    // const handleMouseEnter = () => {
+    //   setIsHovering(true);
+    // };
+  
+    // const handleMouseLeave = () => {
+    //   setIsHovering(false);
+    // };
+
   return (
     <div className={styles.appointmentList}>
         <h1 className={styles.date}>{props.date}</h1>
