@@ -68,10 +68,10 @@ export default function Login() {
                 <Input className='form-input' name='fname' type='password' onChange={passwordVal} passIcon="hide-pass"/>
 
 
-                <Button name="LOGIN" className="signup-login-btn" function={handleSubmit}/>
+                <Button name="LOGIN" className="signup-login-btn" onClick={handleSubmit}/>
                 <div className='btn-group'>
                     <p>New to Salubrious?</p>
-                    <Button function={() => navigate("/Register")} name="REGISTER HERE" className="tersiary-btn"/>
+                    <Button onClick={() => navigate("/Register")} name="REGISTER HERE" className="tersiary-btn"/>
                 </div>
 
 

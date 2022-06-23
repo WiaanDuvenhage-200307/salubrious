@@ -15,6 +15,7 @@ export default function Input(props) {
                 onChange={props.onChange}
                 id={props.id}
                 onBlur={props.onBlur}
+                ref={props.ref}
             />
             {props.passIcon != undefined ? <img className={styling.passIcon} src={require(`../assets/${props.passIcon}.svg`)}/> : null}
         </div>

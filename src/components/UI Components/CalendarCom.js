@@ -74,8 +74,8 @@ const CalendarMod = () => {
                     
                     {/* </div> */}
                     <div className={styles.buttons}>
-                    <Button className={styles.nextPrev} function={() => prevMonth(true)} name="&#9666;"/>
-                    <Button className={styles.nextPrev}  function={() => nextMonth(true)} name="&#9656;"/>
+                    <Button className={styles.nextPrev} onClick={() => prevMonth(true)} name="&#9666;"/>
+                    <Button className={styles.nextPrev}  onClick={() => nextMonth(true)} name="&#9656;"/>
                     </div>
 
                 </div>

@@ -45,7 +45,7 @@ const Profile = () => {
             </div>
             <h3>{name}</h3>
             <h4>{rank}</h4>
-            <Button className={styles.logOut} name="LOG OUT" function={() => setLogout(true)}/>
+            <Button className={styles.logOut} name="LOG OUT" onClick={() => setLogout(true)}/>
         </div>
     );
 };

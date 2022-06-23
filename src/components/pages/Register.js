@@ -280,10 +280,10 @@ export default function Register() {
                 <Input className='form-input' name='age' type='number' onChange={dateVal}/>
                 {ageError}
 
-                <Button function={handleSubmit} name="REGISTER" className="signup-login-btn"/>
+                <Button onClick={handleSubmit} name="REGISTER" className="signup-login-btn"/>
                 <div className='btn-group'>
                     <p>Already a receptionist?</p>
-                    <Button function={() => navigate("/")} name="LOGIN HERE" className="tersiary-btn"/>
+                    <Button onClick={() => navigate("/")} name="LOGIN HERE" className="tersiary-btn"/>
                 </div>
 
             </div>
