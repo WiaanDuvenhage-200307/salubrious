@@ -9,6 +9,7 @@ import styles from './Doctors.module.css';
 import Button from '../UI Components/Buttons/Button';
 import Input from '../UI Components/Input';
 import Dropdown from '../UI Components/Dropdown';
+import { da } from 'date-fns/locale';
 
 
 const Doctors = (props) => {
@@ -123,20 +124,13 @@ const Doctors = (props) => {
         
         const postToDb = () => {
             axios.post('http://localhost/sal_db/addDoctor.php', inputs)
-            .then(function(response){
-                console.log(response);
-
-                if(response.data === true){
-                    // window.confirm("Appointment Added")
-                    // if(window.confirm === true){
-                        
-                    //     window.location.reload();
-                    // }
-                } else {
-                    console.log("Not working!");
-                }
-            });
-            // window.location.reload();
+            .then(function(res){
+                const data = res.data
+                console.log(data);
+            }).catch((res) => {
+                console.log(res);
+            })
+            window.location.reload();
         }
         
         const genderDrop = genders.map(item => <Dropdown dropItem={item} className={styles.dropDown} name="gender"/>)
@@ -182,6 +176,17 @@ const Doctors = (props) => {
     
     }
 
+    const deleteDoctor = () => {
+        const miniModal = window.confirm("You are about to delete this doctor. Are you sure?");
+        if(miniModal === true){
+            axios.post('http://localhost/sal_db/deleteDoctor.php')
+            .then((res) => {
+                const data = res.data;
+                console.log(data);
+            })
+        }
+    }
+
     return (
         <>
         <div className='page'>
@@ -214,6 +219,7 @@ const Doctors = (props) => {
                         <td className={styles.aidNumber}>{item.doctor_id}</td>
                         <td>{item.phone_number}</td>
                         <td>{userId.activeUser == "jane.lambert@salubrious.co.za" ? <td><Button className={styles.updateBtn} name="UPDATE" onClick={() => {setModalOpen(true)}}/></td> : "" }</td>
+                        <td>{userId.activeUser == "jane.lambert@salubrious.co.za" ? <td><Button className={styles.updateBtn} name="DELETE" onClick={deleteDoctor}/></td> : "" }</td>
                     </tr>))}
                 
                 </table>
