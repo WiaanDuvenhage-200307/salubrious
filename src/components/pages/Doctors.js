@@ -8,13 +8,16 @@ import axios from 'axios';
 import styles from './Doctors.module.css';
 import Button from '../UI Components/Buttons/Button';
 import Input from '../UI Components/Input';
+import Dropdown from '../UI Components/Dropdown';
 
 
 const Doctors = (props) => {
 
     const[modalOpen , setModalOpen] = useState(false);
+    const[addModal, setAddModal] = useState(false);
     const navigate = useNavigate();
     const [doctors, setDoctors] = useState([]);
+    const genders = ['M', 'F'];
 
     const [userId, setUserId] = useState({
         activeUser: sessionStorage.getItem('activeUser')
@@ -57,6 +60,128 @@ const Doctors = (props) => {
     
     }
 
+    
+    const AddNewDoctor = () => {
+
+        const [inputs, setInputs] = useState({
+            name: '',
+            surname: '',
+            age: '',
+            gender: '',
+            contact: '',
+            doctorId: '',
+            specialisation: '',
+        })
+
+        const getTheName = (e) => {
+            let value = e.target.value;
+            console.log(value);
+            setInputs({...inputs, name: value})
+            console.log(inputs);
+        }
+
+        const getTheSurname = (e) => {
+            let value = e.target.value;
+            console.log(value);
+            setInputs({...inputs, surname: value})
+            console.log(inputs);
+        }
+
+        const getTheAge = (e) => {
+            let value = e.target.value;
+            console.log(value);
+            setInputs({...inputs, age: value})
+            console.log(inputs);
+        }
+
+
+        const genderVal = (e) => {
+            const value = e.target.value;
+            setInputs({...inputs, gender: value}); 
+        }
+
+        const getTheNumber = (e) => {
+            let value = e.target.value;
+            console.log(value);
+            setInputs({...inputs, contact: value})
+            console.log(inputs);
+        }
+
+        const getTheId = (e) => {
+            let value = e.target.value;
+            console.log(value);
+            setInputs({...inputs, doctorId: value})
+            console.log(inputs);
+        }
+
+        const getTheSpecialisation = (e) => {
+            let value = e.target.value;
+            console.log(value);
+            setInputs({...inputs, specialisation: value})
+            console.log(inputs);
+        }
+        
+        const postToDb = () => {
+            axios.post('http://localhost/sal_db/addDoctor.php', inputs)
+            .then(function(response){
+                console.log(response);
+
+                if(response.data === true){
+                    // window.confirm("Appointment Added")
+                    // if(window.confirm === true){
+                        
+                    //     window.location.reload();
+                    // }
+                } else {
+                    console.log("Not working!");
+                }
+            });
+            // window.location.reload();
+        }
+        
+        const genderDrop = genders.map(item => <Dropdown dropItem={item} className={styles.dropDown} name="gender"/>)
+    
+        return(
+            <div className={styles.addModal}>
+                <h2 className={styles.modalHeading}>New Doctor</h2>
+                <h3>Enter the details below for our new doctor</h3>
+                <Input type='file' name='pfp'/>
+                <div className={styles.flex}>
+                    <div className={styles.flexCol}>
+                        <label htmlFor="name">Name</label>
+                        <Input className='form-input' name='name' type='text' onChange={getTheName}/>
+                    </div>
+                    <div className={styles.flexCol}>
+                        <label htmlFor="surname">Surname</label>
+                        <Input className="form-input" name="surname" type="text" onChange={getTheSurname}/>
+                    </div>
+                </div>
+                <div className={styles.flex}>
+                    <div className={styles.flexCol}>
+                        <label htmlFor="age">Age</label>
+                        <Input className='form-input' name='age' type='text' onChange={getTheAge}/>
+                    </div>
+                    <div className={styles.flexCol}>
+                        <label htmlFor="gender">Gender</label>
+                        <select className={styles.dropDown} name="gender" onChange={genderVal}>
+                            {genderDrop}
+                        </select>
+                    </div>
+                </div>
+
+                <label htmlFor="doctorId">Doctor ID</label>
+                <Input className="form-input" name="doctorId" type="text" onChange={getTheId}/>
+                <label htmlFor="specialisation">Specialisation</label>
+                <Input className="form-input" name="specialisation" type="text" onChange={getTheSpecialisation}/>
+                <label htmlFor="contact">Contact Number</label>
+                <Input className='form-input' name='contact' type='text' onChange={getTheNumber}/>
+                <Button name="Save" className={styles.save} onClick={postToDb}/>
+
+            </div>
+        )
+    
+    }
+
     return (
         <>
         <div className='page'>
@@ -74,7 +199,7 @@ const Doctors = (props) => {
                     <img src={Doctor} width={300}/>
                 </div>
 
- 
+                {userId.activeUser == "jane.lambert@salubrious.co.za" ? <Button className={styles.addBtn} name="Add Doctor &#43;" onClick={() => setAddModal(<AddNewDoctor/>)}/> : ""}
                 
                 <table className={styles.table}>
                     <thead>
@@ -94,6 +219,7 @@ const Doctors = (props) => {
                 </table>
 
                 {modalOpen && <Modal heading={props.heading} openModal={setModalOpen} newAppoint={<UpdatePatient/>}/>}
+                {addModal && <Modal heading={props.heading} openModal={setAddModal} addPatient={<AddNewDoctor/>}/>}
             </div>
             
             

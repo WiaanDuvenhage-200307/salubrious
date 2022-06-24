@@ -19,7 +19,7 @@ export default function Register() {
         image: '',
         name: '',
         surname: '',
-        age: '',
+        age:  '',
         gender: '',
         contact: '', 
         email: '',
@@ -219,6 +219,8 @@ export default function Register() {
 
                 if(response.status === 200){
                     navigate("/Appointments");
+                } else {
+                    console.log("something is wrong!");
                 }
 
             });

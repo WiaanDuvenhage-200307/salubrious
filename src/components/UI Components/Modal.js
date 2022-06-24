@@ -4,7 +4,7 @@ import Dropdown from './Dropdown';
 import Input from './Input';
 import styles from './Modal.module.css';
 
-const Modal = ({heading, openModal, newAppoint}) => {
+const Modal = ({heading, openModal, newAppoint, addPatient}) => {
 
     const closeTheModal = () => {
         openModal(false);
@@ -17,6 +17,7 @@ const Modal = ({heading, openModal, newAppoint}) => {
             <div className={styles.modalTitle}>{heading}</div>
             <div className={styles.modalBody}>
                 {newAppoint}
+                {addPatient}
                 <Button name="Cancel" onClick={() => openModal(false)} className={styles.cancel}/>
             </div>
         </div>
