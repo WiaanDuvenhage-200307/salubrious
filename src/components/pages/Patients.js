@@ -9,6 +9,7 @@ import TableRow from '../UI Components/Table';
 import Input from '../UI Components/Input';
 import Button from '../UI Components/Buttons/Button';
 import styles from './Patients.module.css';
+import Dropdown from '../UI Components/Dropdown';
 
 const Patients = (props) => {
 
@@ -16,8 +17,8 @@ const Patients = (props) => {
 
     const[modalOpen , setModalOpen] = useState(false);
     const[addModal, setAddModal]= useState(false);
-    const [newModal, setNewModal] = useState(false)
-
+    const [newModal, setNewModal] = useState(false);
+    const genders = ['M', 'F'];
     const [patients, setPatients] = useState([]);
 
     const [userId, setUserId] = useState({
@@ -66,20 +67,112 @@ const Patients = (props) => {
     
     }
 
+    
+
     const AddNewPatient = () => {
+
+        const [inputs, setInputs] = useState({
+            name: '',
+            surname: '',
+            age: '',
+            gender: '',
+            email: '',
+            contact: '',
+            patientId: '',
+            medicalNum: '',
+        })
+
+        const getTheName = (e) => {
+            let value = e.target.value;
+            console.log(value);
+            setInputs({...inputs, name: value})
+            console.log(inputs);
+        }
+
+        const getTheSurname = (e) => {
+            let value = e.target.value;
+            console.log(value);
+            setInputs({...inputs, surname: value})
+            console.log(inputs);
+        }
+
+        const getTheAge = (e) => {
+            let value = e.target.value;
+            console.log(value);
+            setInputs({...inputs, age: value})
+            console.log(inputs);
+        }
+
+
+        const genderVal = (e) => {
+            const value = e.target.value;
+            setInputs({...inputs, gender: value}); 
+        }
+
+        const getTheEmail = (e) => {
+            let value = e.target.value;
+            console.log(value);
+            setInputs({...inputs, email: value})
+            console.log(inputs);
+        }
+
+        const getTheNumber = (e) => {
+            let value = e.target.value;
+            console.log(value);
+            setInputs({...inputs, contact: value})
+            console.log(inputs);
+        }
+
+        const getTheId = (e) => {
+            let value = e.target.value;
+            console.log(value);
+            setInputs({...inputs, patientId: value})
+            console.log(inputs);
+        }
+
+        const getTheMedicalNum = (e) => {
+            let value = e.target.value;
+            console.log(value);
+            setInputs({...inputs, medicalNum: value})
+            console.log(inputs);
+        }
+        
+        const postToDb = () => {
+            axios.post('http://localhost/sal_db/addPatient.php', inputs)
+            .then(function(res){
+                const data = res.data
+                console.log(data);
+            }).catch((res) => {
+                console.log(res);
+            })
+            // window.location.reload();
+        }
+
+        const genderDrop = genders.map(item => <Dropdown dropItem={item} className={styles.dropDown} name="gender"/>)
     
         return(
             <div className={styles.addModal}>
                 <h2 className={styles.modalHeading}>New Patient</h2>
                 <h3>Enter the details below for our new patient</h3>
                 <Input type='file' name='pfp'/>
-                <label htmlFor="patientName">Name</label>
-                <Input className='form-input' name='name' type='text'/>
-                <label htmlFor="date">Medical Aid Number</label>
-                <Input className="form-input" name="date" type="text"/>
-                <label htmlFor="fname">Contact Number</label>
-                <Input className='form-input' name='reason' type='text'/>
-                <Button name="Save" className={styles.save}/>
+                <label htmlFor="name">Name</label>
+                <Input className='form-input' name='name' type='text' onChange={getTheName}/>
+                <label htmlFor="surname">Surname</label>
+                <Input className="form-input" name="surname" type="text" onChange={getTheSurname}/>
+                <label htmlFor="age">Age</label>
+                <Input className='form-input' name='age' type='text' onChange={getTheAge}/>
+                <select name='gender' onChange={genderVal}>
+                    {genderDrop}
+                </select>
+                <label htmlFor="email">Email</label>
+                <Input className="form-input" name="email" type="text" onChange={getTheEmail}/>
+                <label htmlFor="contact">Contact Number</label>
+                <Input className='form-input' name='contact' type='text' onChange={getTheNumber}/>
+                <label htmlFor="patientId">Patient ID</label>
+                <Input className='form-input' name='patientId' type='text' onChange={getTheId}/>
+                <label htmlFor="medicalNum">Medical Aid Number</label>
+                <Input className='form-input' name='medicalNum' type='text' onChange={getTheMedicalNum}/>
+                <Button name="Save" className={styles.save} onClick={postToDb}/>
             </div>
         )
     

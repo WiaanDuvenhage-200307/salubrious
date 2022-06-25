@@ -9,7 +9,6 @@ import styles from './Doctors.module.css';
 import Button from '../UI Components/Buttons/Button';
 import Input from '../UI Components/Input';
 import Dropdown from '../UI Components/Dropdown';
-import { da } from 'date-fns/locale';
 
 
 const Doctors = (props) => {
