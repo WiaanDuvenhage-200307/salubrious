@@ -178,7 +178,9 @@ const Doctors = (props) => {
     const deleteDoctor = () => {
         const miniModal = window.confirm("You are about to delete this doctor. Are you sure?");
         if(miniModal === true){
-            axios.post('http://localhost/sal_db/deleteDoctor.php')
+
+            let postId = {id: props.uniqueId}
+            axios.post('http://localhost/sal_db/deleteDoctor.php', postId)
             .then((res) => {
                 const data = res.data;
                 console.log(data);

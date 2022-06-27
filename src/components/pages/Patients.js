@@ -47,13 +47,31 @@ const Patients = (props) => {
         setPatients([...patients, `<tr><td><Input className='form-input' name='name' type='text'/></td></tr>`]);
     }
 
-
+    const UpdatePatient = () => {
+    
+        return(
+            <div>
+                <h2 className={styles.modalHeading}>Update Patient</h2>
+                <h3>Update our patient's details by editing the fields below</h3>
+                <label htmlFor='pfp'>Change Profile Pic</label>
+                <Input type='file' name='pfp'/>
+                <label htmlFor="patientName">Name</label>
+                <Input className='form-input' name='name' type='text'/>
+                <label htmlFor="date">Medical Aid Number</label>
+                <Input className="form-input" name="date" type="text"/>
+                <label htmlFor="fname">Contact Number</label>
+                <Input className='form-input' name='reason' type='text'/>
+                <Button name="Save" className={styles.save}/>
+            </div>
+        )
+    
+    }
 
     
 
     const AddNewPatient = () => {
 
-        let [inputs, setInputs] = useState({
+        const [inputs, setInputs] = useState({
             name: '',
             surname: '',
             age: '',
@@ -160,26 +178,6 @@ const Patients = (props) => {
     
     }
 
-    const UpdatePatient = () => {
-    
-        return(
-            <div>
-                <h2 className={styles.modalHeading}>Update Patient</h2>
-                <h3>Update our patient's details by editing the fields below</h3>
-                <label htmlFor='pfp'>Change Profile Pic</label>
-                <Input type='file' name='pfp'/>
-                <label htmlFor="patientName">Name</label>
-                <Input className='form-input' name='name' type='text'/>
-                <label htmlFor="date">Medical Aid Number</label>
-                <Input className="form-input" name="date" type="text"/>
-                <label htmlFor="fname">Contact Number</label>
-                <Input className='form-input' name='reason' type='text'/>
-                <Button name="Save" className={styles.save}/>
-            </div>
-        )
-    
-    }
-
     return (
         <>
         <div className='page'>
@@ -215,7 +213,7 @@ const Patients = (props) => {
                     </tr>))}
                 </table>
 
-                {modalOpen && <Modal heading={props.heading} openModal={setModalOpen} newAppoint={<UpdatePatient defaultValue="Jane"/>}/>}
+                {modalOpen && <Modal heading={props.heading} openModal={setModalOpen} newAppoint={<UpdatePatient name="Jane"/>}/>}
                 {addModal && <Modal heading={props.heading} openModal={setAddModal} addPatient={<AddNewPatient/>}/>}
             </div>
             
