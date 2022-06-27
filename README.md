@@ -69,7 +69,7 @@
 
 ### Project Description
 
-Welcome to salubrious! This is a receptionists management portal that I built using React, PHP & MySQL. It is a CRUD-system that can create, read, update & delete.
+Welcome to Salubrious! This is a receptionists management portal that I built using React, PHP & MySQL. It is a CRUD-system that can create, read, update & delete.
 
 ### Built With
 
@@ -116,10 +116,10 @@ Here are a couple of ways to clone this repo:
 
 <!-- note how you can use your gitHub link. Just make a path to your assets folder -->
 
-### Adding Household Members Incomes
+### Adding an Appointment
 
-![image5](src/assets/Function1.jpg)
-Using JavaScript and React's `UseState()` and `UseRef()` hooks, I was able to capture the user's name and income and display it the DOM. After doing that I calculated all their incomes together and display it underneath. The user will also be able to remove the user and the amount will be deducted.
+![image5](src/components/assets/Function1.jpg)
+The receptionist can add an appointment by assigning a patient to a doctor. They can add the name, date and time and it will display on the page when the page auto-refreshes.
 
 ### Adding Monthly Expenses
 
