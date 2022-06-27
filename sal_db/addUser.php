@@ -33,7 +33,7 @@ $newPath = 'profiles/' . time() . '.jpg';
 
 file_put_contents($newPath, $image);
 
-$sql = "INSERT INTO `receptionists` (`id`, `profile_image`, `name`, `surname`, `age`, `gender`, `phone_number`, `email`, `password`, `rank`) VALUES (NULL, '$image', '$name', '$surname', '$age', '$gender', '$contact', '$email', '$passwordEncrypt', 'Receptionist');";
+$sql = "INSERT INTO `receptionists`(`id`, `profile_image`, `name`, `surname`, `age`, `gender`, `phone_number`, `email`, `password`, `rank`) VALUES (NULL, '$newPath', '$name', '$surname', '$age', '$gender', '$contact', '$email', '$passwordEncrypt', 'Receptionist');";
 $result = mysqli_query($conn, $sql);
 
 if(!$result){

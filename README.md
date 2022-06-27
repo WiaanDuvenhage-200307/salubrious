@@ -220,7 +220,7 @@ The aspects I learned outside of this class, is that I implemented SCSS into my 
 
 To see a run through of the application, click below:
 
-[View Demonstration](https://youtu.be/dRmRu0dk7a0)
+[View Demonstration](https://youtu.be/Oag-DdqW9jA)
 
 See the [open issues](https://github.com/WiaanDuvenhage-200307/salubrious/issues) for a list of proposed features (and known issues).
 
