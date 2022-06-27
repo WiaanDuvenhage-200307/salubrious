@@ -21,20 +21,15 @@ export default function Receptionists(props) {
         activeUser: sessionStorage.getItem('activeUser') 
     });
 
-    
-    const editRecept = () => {
-        setModal(<EditModal heading="Receptionist" upRender={props.rerender} rerender={setModal} original={props.message} id={props.uniqueId}/>);
-    }
-
     const [defValue, setDefValue] = useState('');
     useEffect(() => {
         axios.get('http://localhost/sal_db/getReceptionists.php', userId)
-        .then((res => {
+        .then(res => {
             let data = res.data;
             console.log(data);
-            let renderReceptionists = data.map((item) => <TableRow  key={item.id} id={item.uniqueId} profile_image={item.profile_image}  name={item.name} surname={item.surname} email={item.email} rank={item.rank} phone_number={item.phone_number}/>)
+            let renderReceptionists = data.map((item) => <TableRow key={item.id} id={item.id} profile_image={item.profile_image}  name={item.name} surname={item.surname} email={item.email} rank={item.rank} phone_number={item.phone_number}/>)
             setReceptionists(renderReceptionists);
-        }))
+        })
         setReceptId(props.receptId);
         console.log(receptId);
     }, [props.receptId])

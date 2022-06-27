@@ -47,7 +47,7 @@ const Modal = ({heading, openModal, newAppoint, addPatient, id}) => {
         <div className={styles.modal}>
             <Button name={<i class="fa-solid fa-x"></i>} onClick={closeTheModal} className={styles.closeBtn}/>
             <div className={styles.modalTitle}>{heading}</div>
-            <div className={styles.modalBody}>
+            <div className={styles.modalBody} key={id}>
                 {newAppoint}
                 {addPatient}
                 <Button name="Cancel" onClick={() => openModal(false)} className={styles.cancel}/>

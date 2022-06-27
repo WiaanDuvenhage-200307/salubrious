@@ -86,9 +86,9 @@ const EditModal = (props) => {
 
         <Input type="file"/>
         <Input className="form-input" id='updateName' placeholder='Name' onChange={handleNameChange}/>
-        <Input className='form-input' id='updateSurname' type='text' onChange={handleSurnameChange}/>
-        <Input className="form-input" id='updateEmail'  placeholder='Email' onChange={handleEmailChange}/>
-        <Input className="form-input" id='updateRank' placeholder='Name' onChange={handleRankChange}/>
+        <Input className='form-input' id='updateSurname' type='text' placeholder="gender" onChange={handleSurnameChange}/>
+        <Input className='form-input' id='updateSurname' type='text' placeholder="age" onChange={handleSurnameChange}/>
+        <Input className="form-input" id='updateEmail'  placeholder='medical aid number' onChange={handleEmailChange}/>
         <Input className='form-input' id='updateNum' type='text' onChange={handleContactChange}/>
         <div className={styles.flex}>
             <Button className={styles.updateBtn} type='submit' name="Update" onClick={updateReceptionist} />

@@ -14,19 +14,20 @@ export default function TableRow(props) {
     });
 
     const editRecept = () => {
-        setModal(<EditModal heading="Receptionist" upRender={props.rerender} rerender={setModal} firstName={props.name} email={props.email} id={props.uniqueId}/>);
+        setModal(<EditModal heading="Receptionist" upRender={props.rerender} rerender={setModal} firstName={props.name} surname={props.surname} email={props.email} rank={props.rank} contactNum={props.phone_number} id={props.uniqueId}/>);
     }
 
   return (
     <>
-     {modal}
-    <tr key={props.id} id={props.uniqueId}>
+
+    <tr id={props.id}>
         <td className={styles.tableImg}><img className={styles.circle} src={"http://localhost/sal_db/" + props.profile_image}/></td>
         <td><span className={styles.pName}>{props.name + " " + props.surname}</span><br /><span className={styles.subHeading}>{props.email}</span></td>
         <td className={styles.aidNumber}>{props.rank}</td>
         <td>{props.phone_number}</td>
-        <td>{userId.activeUser == "jane.lambert@salubrious.co.za" ? <td><Button id={props.id} fName={props.name} className={styles.updateBtn} name="UPDATE" onClick={editRecept}/></td> : "" }</td>
-        </tr>
+        <td>{userId.activeUser == "jane.lambert@salubrious.co.za" ? <td><Button className={styles.updateBtn} name="UPDATE" onClick={editRecept}/></td> : "" }</td>
+    </tr>
+    {modal}
     </>
   )
 }

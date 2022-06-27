@@ -15,6 +15,21 @@
     left: 25%;
 }
 
+.modalContent h2{
+    color: var(--primary-color);
+    font-size: 'Montserrat';
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
 .modalBg{
     background-color: rgba(200, 200, 200, 0.5);
     width: 100vw;
@@ -22,6 +37,30 @@
     position: fixed;
     left: 0;
     top: 0;
+}
+
+.updateBtn{
+    color: var(--bg-color);
+    background-color: var(--primary-color);
+    padding: 10px;
+    width: 200px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.updateBtn:hover{
+    color: var(--bg-color);
+    background-color: var(--secondary-color);
+    transition: 0.2s ease-in-out;
+}
+
+
+.cancelBtn{
+    color: var(--primary-color);
+}
+
+.cancelBtn:hover{
+    text-decoration: underline;
 }
 
 .modalCon{
