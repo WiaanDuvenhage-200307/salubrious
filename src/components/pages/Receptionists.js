@@ -20,6 +20,11 @@ export default function Receptionists(props) {
         
     });
 
+    const [updatedPost, setUpdatedPost] = useState({
+        id: props.id,
+        name: props.name
+    })
+
     useEffect(() => {
         axios.get('http://localhost/sal_db/getReceptionists.php')
         .then((res => {
@@ -36,7 +41,7 @@ export default function Receptionists(props) {
                 <label htmlFor='pfp'>Change Profile Pic</label>
                 <Input type='file' name='pfp'/>
                 <label htmlFor="patientName">Name</label>
-                <Input className='form-input' name='name' type='text'/>
+                <Input className='form-input' name='name' type='text' value={props.name}/>
                 <label htmlFor="fname">Patient Name</label>
                 <Input className="form-input" name="date" type="text"/>
                 <label htmlFor="date">Medical Aid Number</label>
@@ -71,14 +76,15 @@ export default function Receptionists(props) {
                     <th>CONTACT NUMBER</th>
                 </thead>
                 {receptionists.map((item,index)=>(<tr key={index}>
-                            <td className={styles.tableImg}>{item.profile_image}</td>
-                            <td><span className={styles.pName}>{item.name + " " + item.surname}</span><br /><span className={styles.subHeading}>{item.email}</span></td>
-                            <td className={styles.aidNumber}>{item.rank}</td>
-                            <td>{item.phone_number}</td>
-                            <td>{userId.activeUser == "jane.lambert@salubrious.co.za" ? <td><Button className={styles.updateBtn} name="UPDATE" onClick={() => {setModalOpen(true)}}/></td> : "" }</td>
-                            </tr>))}
+                    <td className={styles.tableImg}><img className={styles.circle} src={"http://localhost/sal_db/" + item.profile_image}/></td>
+                    <td><span className={styles.pName}>{item.name + " " + item.surname}</span><br /><span className={styles.subHeading}>{item.email}</span></td>
+                    <td className={styles.aidNumber}>{item.rank}</td>
+                    <td>{item.phone_number}</td>
+                    <td>{userId.activeUser == "jane.lambert@salubrious.co.za" ? <td><Button className={styles.updateBtn} name="UPDATE" onClick={() => {setModalOpen(true)}}/></td> : "" }</td>
+                    </tr>
+                ))}
             </table>
-            {modalOpen && <Modal heading={props.heading} openModal={setModalOpen} newAppoint={<UpdatePatient/>}/>}
+            {modalOpen && <Modal heading={props.heading} openModal={setModalOpen} newAppoint={<UpdatePatient />}/>}
         </div>
     </div>
   )

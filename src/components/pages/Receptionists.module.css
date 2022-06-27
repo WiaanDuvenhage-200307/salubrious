@@ -68,3 +68,12 @@ td{
     font-size: 46px;
     text-align: center;
 }
+
+.circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    margin: 0 auto;
+    background-size:contain;
+    background-position: center;
+}

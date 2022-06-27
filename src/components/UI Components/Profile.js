@@ -8,6 +8,8 @@ const Profile = () => {
 
     const navigate = useNavigate();
 
+    const [profileImg, setProfileImg] = useState();
+
     const [userId, setUserId] = useState({
         activeUser: sessionStorage.getItem('activeUser')
     });
@@ -30,19 +32,26 @@ const Profile = () => {
     })
 
     useEffect(() => {
+
         axios.post('http://localhost/sal_db/getReceptionistinfo.php', JSON.stringify(receptionist))
         .then((res) => {
-            console.log(res.data[0].name);
+            console.log(res.data[0].profile_image);
             setName(res.data[0].name);
             setRank(res.data[0].rank);
+            let source = res.data[0].profile_image;
+            let renderpath = 'http://localhost/sal_db/' + source;
+            setProfileImg(renderpath);
         })
-    }, [])
+       
+       
+        
 
+    }, [])
 
     return (
         <div className={styles.profileGroup}>
-            <div className={styles.circle}>    
-            </div>
+            <img src={profileImg} className={styles.circle} alt='receptionist_img'>    
+            </img>
             <h3>{name}</h3>
             <h4>{rank}</h4>
             <Button className={styles.logOut} name="LOG OUT" onClick={() => setLogout(true)}/>

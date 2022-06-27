@@ -13,7 +13,7 @@ export default function Register() {
 
     const navigate = useNavigate();
 
-    const genders = ['M', 'F'];
+    const genders = ['Please Select...','M', 'F'];
 
     const [inputs, setInputs] = useState({
         image: '',
@@ -218,6 +218,7 @@ export default function Register() {
                 console.log(response);
 
                 if(response.status === 200){
+                    sessionStorage.setItem('activeUser', inputs.email);
                     navigate("/Appointments");
                 } else {
                     console.log("something is wrong!");
@@ -244,41 +245,41 @@ export default function Register() {
          
                 <div className={styles.nameGroup}>
                     <div className={styles.group}>
-                        <label for="name">First Name</label>
+                        <label htmlFor='name'>First Name</label>
                         <Input className='form-input' name='name' type='text' onChange={firstVal}/>
                         {nameError}
                     </div> 
 
                     <div className={styles.group}>
-                        <label for="surname">Last Name</label>
+                        <label htmlFor='surname'>Last Name</label>
                         <Input className='form-input' name='surname' type='text' onChange={lastVal}/>
                         {lastError}
                     </div>
 
                 </div>
 
-                <label for="gender">Gender</label>
+                <label htmlFor='gender'>Gender</label>
                 <select className={styles.dropDown} name="gender" onChange={genderVal}>
                     {genderDrop}
                 </select>
 
-                <label for="email">Email</label>
+                <label htmlFor='email'>Email</label>
                 <Input className='form-input' name='email' type='text'  onChange={emailVal}/>
                 {emailError}
 
-                <label for="password">Password</label>
+                <label htmlFor='password'>Password</label>
                 <Input className='form-input' name='password' type='password'  passIcon="hide-pass" onChange={passwordVal}/>
                 {passwordError}
 
-                <label for="passwordCon">Confirm Password</label>
+                <label htmlFor='passwordCon'>Confirm Password</label>
                 <Input className='form-input' name='passwordCon' type='password' passIcon="hide-pass" onChange={passwordConVal}/>
                 {passwordConError}
 
-                <label for="phone_number">Phone Number (optional)</label>
+                <label htmlFor='contact'>Phone Number (optional)</label>
                 <Input className='form-input' name='contact' type='text' placeholder='(+27)' onChange={contactVal}/>
                 {contactError}
 
-                <label for="age">Age</label>
+                <label htmlFor='age'>Age</label>
                 <Input className='form-input' name='age' type='number' onChange={dateVal}/>
                 {ageError}
 
