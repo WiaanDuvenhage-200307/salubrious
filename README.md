@@ -121,19 +121,20 @@ Here are a couple of ways to clone this repo:
 ![image5](src/components/assets/Function1.jpg)
 The receptionist can add an appointment by assigning a patient to a doctor. They can add the name, date and time and it will display on the page when the page auto-refreshes.
 
-### Adding Monthly Expenses
+### Scroll Through Calendar
 
-![image6](src/assets/Function2.jpg)
-The household member would be able to add their name, their type of expense and lastly their expense amount and it will get added to the total at the bottom
+![image6](src/components/assets/Function2.jpg)
+The receptionist can scroll through the calendar to see which date falls on which day, the receptionist can go forward or backward in time using the arrows underneath the month's name.
 
-### Adding Tax on Incomes
+### Add Doctor/Patient
 
 ![image7](src/assets/Function3.jpg)
-The household member can insert their income and based on the table above it will display how much tax they will pay based on their income.
+The receptionist can add a new doctor or patient's information into the modal and it will push to the database and display on the page after it refreshes. 
 
-### Calculating how much members will save
-![image8](src/assets/Function4.jpg)
-Household Members can manually type in how much % they want to save from their income each month. It will then display on the right hand side. This has been done using the array method called `.map()`.
+### Only Head Receptionist can add
+![image8](src/components/assets/Function4.jpg)
+![image10](src/components/assets/Function4-1.jpg)
+The head receptionist is the only one authorized to add, delete or update appointments, patients & doctors
 
 <!-- CONCEPT PROCESS -->
 <!-- Briefly explain your concept ideation process -->
@@ -145,7 +146,9 @@ It was very evident that blue is something that is very evident when designing d
 
 ### Wireframes
 
-![image9](src/assets/wireframe.png)
+![image9](src/components/assets/wireframe-dash.png)
+![image11](src/components/assets/wireframe-doctors.png)
+![image12](src/components/assets/wireframe-signup.png)
 
 ## Development Process
 
@@ -206,10 +209,10 @@ The aspects I learned outside of this class, is that I implemented tailwindcss t
 
 <!-- TODO Change this -->
 
-![image2](src/assets/Mockup1.jpg)
-![image3](src/assets/Mockup3.jpg)
-![image4](src/assets/Mockup4.jpg)
-![image5](src/assets/Mockup5.jpg)
+![image2](src/components/assets/Mockup1.jpg)
+![image3](src/components/assets/Mockup3.jpg)
+![image4](src/components/assets/Mockup4.jpg)
+![image5](src/components/assets/Mockup5.jpg)
 <br>
 
 
