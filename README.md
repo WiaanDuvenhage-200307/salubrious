@@ -164,22 +164,23 @@ The `Development Process` is the technical implementations and functionality don
 
 <!-- stipulated the highlight you experienced with the project -->
 
-- A highlight of this project was definitely getting my tests to pass and getting my functionality to work. It was a lot of struggles and late nights, but by the help of my peers and A LOT of research, I got all my tests to pass.
+- A highlight of this project was defintely interacting with the database and manipulating data on the database and seeing it being displaye on the application.
 
 #### Challenges
 
 <!-- stipulated the challenges you faced with the project and why you think you faced it or how you think you'll solve it (if not solved) -->
 
-- I struggled getting my tests to pass because I didn't completely understand the syntax of the React Testing Library.
-- I struggled the grasp the concept of snapshots
-- Figuring out my frontend in relation to testing was a challenge to say the least, but I got it to work out nicely
-- My snapshot is passing but I kept getting a failed error message stating `tree.props.onMouseEnter() is not a function`, I will look into it through research, but I couldn not get it to work
+- I struggled to get all my updates and deletes to be implemented.
+- I struggled to get all my profile pictures to be updated and rendered on the DOM from the Database.
+- debugging the CORS error's for sending data to the Database, especially my Register page's CORS error
+- I struggled a lot with debugging the PHP error's
+- Front-end was also a bit tricky because I kept following the trend of putting everything in blocks
 
 #### Above And Beyond
 
 <!-- TODO Change this! -->
 
-The aspects I learned outside of this class, is that I implemented SCSS into my project for a more readable css file structure.
+The aspects I learned outside of this class, is that I implemented tailwindcss to create my calendar, I also incorporated the Date-fns dependency to render my calendar dates.
 
 ### Future Implementation
 
@@ -187,8 +188,10 @@ The aspects I learned outside of this class, is that I implemented SCSS into my 
 
 <!-- stipulate functionality and improvements that can be implemented in the future. -->
 
-- For my future implementation is to test with async functions
-- Something I'm also looking to implement is way more snapshots in my test files
+- I want to complete all my update and delete's of the patients and doctor's
+- I want to fix my styling for my application
+- I want to display the appointments by week
+- I want to complete the profile pictures to be rendered and updated
 
 <!-- MOCKUPS -->
 
