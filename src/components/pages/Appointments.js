@@ -36,7 +36,6 @@ const Appointments = () => {
 
     useEffect(() => {
         const userSession = sessionStorage.getItem('activeUser');
-        (userSession);
         if(userSession === '' || userSession === null){
             navigate('/');
         }

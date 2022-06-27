@@ -69,15 +69,15 @@
 
 ### Project Description
 
-Welcome to salubrious! This is a cool budgeting app I built that calculates the total expenses of household members, add taxes to incomes, calculate the total amount of expenses each month and it will calculate the percentage amount of savings household members want to put away for a rainy day.
+Welcome to salubrious! This is a receptionists management portal that I built using React, PHP & MySQL. It is a CRUD-system that can create, read, update & delete.
 
 ### Built With
 
 - [React](https://reactjs.org/)
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
-- [Jest](https://jestjs.io/)
-- [JavaScript](https://www.javascript.com/)
-- [SCSS](https://sass-lang.com/)
+- [PHP](https://www.php.net/)
+- [MySQL](https://www.mysql.com/)
+- [MAMP for Windows](https://www.mamp.info/en/windows/)
+- [tailwindcss](https://tailwindcss.com/)
 
 <!-- GETTING STARTED -->
 <!-- Make sure to add appropriate information about what prerequesite technologies the user would need and also the steps to install your project on their own mashines -->
@@ -141,7 +141,7 @@ Household Members can manually type in how much % they want to save from their i
 
 ## Concept Process
 
-For my conceptual process, I aimed for a very dark theme approach for my designs, because I feel that no one likes to look at something with an immense amount of bright colors, and I think that dark theme trends are absolutely amazing. I have gotten all my inspiration from sites like Behance and Pinterest.
+It was very evident that blue is something that is very evident when designing dashboards or management portals for medical firms. So it is the route that I decided to go with Salubrious, I tried keeping it clean with different hue's of blue and some accents of a lime green.
 
 ### Wireframes
 
@@ -204,13 +204,6 @@ The aspects I learned outside of this class, is that I implemented SCSS into my 
 ![image5](src/assets/Mockup5.jpg)
 <br>
 
-## The Tests
-
-### Test Coverage
-![image10](src/assets/CodeCoverage.jpg)
-
-### Test Summary
-![image11](src/assets/TestSummary.jpg)
 
 <!-- VIDEO DEMONSTRATION -->
 
@@ -250,10 +243,7 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 <!-- all resources that you used and Acknowledgements here -->
 <!-- TODO Change this -->
 
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
-- [Jest](https://jestjs.io/)
 - [Stack Overflow](https://stackoverflow.com/)
-- [React Snapshot Testing Resource](https://www.youtube.com/watch?v=wfFw05TaBfM&t=217s)
 - [Cooolors](https://coolors.co/)
 - [Figma](https://www.figma.com/)
 - [My Pinterest Board](https://za.pinterest.com/doubleudeedesigns/budget-app/)
