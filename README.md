@@ -26,7 +26,7 @@
     
    <br />
    <br />
-   <a href="https://youtu.be/dRmRu0dk7a0">View Demo</a>
+   <a href="https://youtu.be/Oag-DdqW9jA">View Demo</a>
     ·
     <a href="https://github.com/WiaanDuvenhage-200307/salubrious/issues">Report Bug</a>
     ·
