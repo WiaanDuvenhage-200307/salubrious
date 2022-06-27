@@ -65,7 +65,7 @@
 
 <!-- header image of project -->
 
-![image1](src/assets/Mockup2.jpg)
+![image1](src/assets/Mockup3.jpg)
 
 ### Project Description
 
@@ -153,11 +153,16 @@ The `Development Process` is the technical implementations and functionality don
 
 ### Implementation Process
 
-- I used `npx create-react app` to create this React project. I implemented component-based development instead of classes. By doing this, I will be able to easily inject and eject components and sub-components into my project, making it refactorable and reusable instead of writing up classes I have to do everytime making it tedious and redundant.
+- I used `npx create-react app` to create this React project. I implemented component-based development instead of classes. By doing this, I will be able to easily inject and eject components and sub-components into my project, making it refactorable and reusable instead of writing up classes I have to do everytime making it tedious and redundant
 
--I implemented the jest library using `npm install --save-dev jest` to test my components
+- I implemented the `date-fns` dependency to manipulate and display the time & date the I wanted to and to create my calendar
 
--Lastly I used SCSS (Sass) instead of css just because styling with it was just much simpler and much more readable 
+- I incorporated `tailwindcss` to create and style my calendar component the way I wanted it to look
+
+- `axios` was implemented so that I can make HTTP requests to the database server so that I can retrieve and push data to it
+
+- I used `PHPMyAdmin` to alter data on the database and used PHP to talk to the backend MySQL database
+ 
 
 
 #### Highlights
