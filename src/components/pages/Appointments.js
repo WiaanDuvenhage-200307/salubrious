@@ -25,7 +25,6 @@ const Appointments = () => {
     useEffect(() => {
         axios.post('http://localhost/sal_db/getReceptionistinfo.php', JSON.stringify(receptionist))
         .then((res) => {
-            console.log(res.data[0].name);
             setName(res.data[0].name);
         })
     }, [])
@@ -37,7 +36,7 @@ const Appointments = () => {
 
     useEffect(() => {
         const userSession = sessionStorage.getItem('activeUser');
-        console.log(userSession);
+        (userSession);
         if(userSession === '' || userSession === null){
             navigate('/');
         }
