@@ -5,7 +5,7 @@ import Input from './Input';
 import styles from './Modal.module.css';
 import axios from 'axios';
 
-const Modal = ({heading, openModal, newAppoint, addPatient, newInfo}) => {
+const Modal = ({heading, openModal, newAppoint, addPatient, id}) => {
 
     const closeTheModal = () => {
         openModal(false);

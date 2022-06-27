@@ -258,3 +258,5 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 - [Figma](https://www.figma.com/)
 - [My Pinterest Board](https://za.pinterest.com/doubleudeedesigns/budget-app/)
 - [(w3schools) SQL SELECT Statement](https://www.w3schools.com/sql/sql_select.asp)
+- [Leander van Aarde](https://github.com/LeandervanAarde)
+- [Vian Du Plessis](https://github.com/Vian-du-Plessis)

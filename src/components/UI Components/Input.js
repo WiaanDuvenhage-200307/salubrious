@@ -7,7 +7,8 @@ export default function Input(props) {
   return (
     <div>
         <div className={styling.inputContainer}>
-            <input 
+            <input
+                defaultValue={props.defaultValue}
                 className={props.className}
                 name={props.name} 
                 type={props.type} 

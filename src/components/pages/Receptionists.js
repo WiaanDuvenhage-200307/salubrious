@@ -2,55 +2,82 @@ import React, {useState, useEffect} from 'react'
 import Nav from '../UI Components/Nav';
 import Table from '../UI Components/Table';
 import Receptionist from '../assets/receptionist.svg';
-import TableRow from '../UI Components/Table';
+import TableRow from '../UI Components/TableRow';
 import axios from 'axios';
 import Modal from '../UI Components/Modal';
 import styles from './Receptionists.module.css';
 import Button from '../UI Components/Buttons/Button';
 import Input from '../UI Components/Input';
+import EditModal from '../UI Components/EditModal';
 
 export default function Receptionists(props) {
 
     const [receptionists, setReceptionists] = useState([]);
-    const[modalOpen , setModalOpen] = useState(false);
-    // const[modalOpen , setModalOpen] = useState(false);
+    const [receptId, setReceptId] = useState('');
+    const [receptName, setReceptName] = useState('');
+    const[modal , setModal] = useState();
 
     const [userId, setUserId] = useState({
-        activeUser: sessionStorage.getItem('activeUser')
-        
+        activeUser: sessionStorage.getItem('activeUser') 
     });
 
-    const [updatedPost, setUpdatedPost] = useState({
-        id: props.id,
-        name: props.name
-    })
+    
+    const editRecept = () => {
+        setModal(<EditModal heading="Receptionist" upRender={props.rerender} rerender={setModal} original={props.message} id={props.uniqueId}/>);
+    }
 
+    const [defValue, setDefValue] = useState('');
     useEffect(() => {
-        axios.get('http://localhost/sal_db/getReceptionists.php')
+        axios.get('http://localhost/sal_db/getReceptionists.php', userId)
         .then((res => {
             let data = res.data;
-            setReceptionists(data);
+            console.log(data);
+            let renderReceptionists = data.map((item) => <TableRow  key={item.id} id={item.uniqueId} profile_image={item.profile_image}  name={item.name} surname={item.surname} email={item.email} rank={item.rank} phone_number={item.phone_number}/>)
+            setReceptionists(renderReceptionists);
         }))
-    }, [])
+        setReceptId(props.receptId);
+        console.log(receptId);
+    }, [props.receptId])
 
-    const UpdatePatient = () => {
-    
-        return(
-            <>
-                <h2 className={styles.modalHeading}>Update Receptionist</h2>
-                <label htmlFor='pfp'>Change Profile Pic</label>
-                <Input type='file' name='pfp'/>
-                <label htmlFor="patientName">Name</label>
-                <Input className='form-input' name='name' type='text' value={props.name}/>
-                <label htmlFor="fname">Patient Name</label>
-                <Input className="form-input" name="date" type="text"/>
-                <label htmlFor="date">Medical Aid Number</label>
-                <Input className="form-input" name="date" type="text"/>
-                <label htmlFor="fname">Contact Number</label>
-                <Input className='form-input' name='reason' type='text'/>
-                <Button name="Save" className={styles.save}/>
-            </>
-        )
+
+
+    const UpdatePatient = (props) => {
+
+        const [receptionist, setReceptionist] = useState({
+            email: sessionStorage.getItem('activeUser'),
+            name: '',
+        })
+
+        // const [updatedReceptionist, setUpdatedReceptionist] = useState({
+        //     image: props.image,
+        //     name: props.name,
+        //     surname: props.surname,
+        //     age: props.age,
+        //     gender: props.gender,
+        //     contact: props.contact,
+        //     email: props.email,
+        //     id: props.id
+        // })
+
+        // const handleNameChange = (e) => {
+        //     let val = e.target.value;
+        //     setUpdatedReceptionist({...updatedReceptionist, name: val});
+        // }
+
+        // const updateReceptionist = () => {
+        //     axios.post('http://localhost/sal_db/updateReceptionist.php', updateReceptionist)
+        //     .then((res) => {
+        //         let data = res.data;
+        //         console.log(data);
+        //     })
+        // }
+
+        // const [fNames, setFNames] = useState('');
+
+        // useEffect(() => {
+        //     setFNames(props.defaultValue);
+
+        // }, [props.defaultValue]
     
     }
 
@@ -75,16 +102,10 @@ export default function Receptionists(props) {
                     <th>EMAIL</th>
                     <th>CONTACT NUMBER</th>
                 </thead>
-                {receptionists.map((item,index)=>(<tr key={index}>
-                    <td className={styles.tableImg}><img className={styles.circle} src={"http://localhost/sal_db/" + item.profile_image}/></td>
-                    <td><span className={styles.pName}>{item.name + " " + item.surname}</span><br /><span className={styles.subHeading}>{item.email}</span></td>
-                    <td className={styles.aidNumber}>{item.rank}</td>
-                    <td>{item.phone_number}</td>
-                    <td>{userId.activeUser == "jane.lambert@salubrious.co.za" ? <td><Button className={styles.updateBtn} name="UPDATE" onClick={() => {setModalOpen(true)}}/></td> : "" }</td>
-                    </tr>
-                ))}
+                {receptionists}
+
             </table>
-            {modalOpen && <Modal heading={props.heading} openModal={setModalOpen} newAppoint={<UpdatePatient />}/>}
+            {modal}
         </div>
     </div>
   )

@@ -41,8 +41,6 @@ const Appointments = () => {
         if(userSession === '' || userSession === null){
             navigate('/');
         }
-
-
     })
 
 
